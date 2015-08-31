@@ -1,0 +1,65 @@
+.ozzie > body {
+	position: fixed;
+	width: 100%;
+}
+
+	.ozzie > body > .geo-overlay {
+		position: fixed;
+		overflow: hidden;
+		background: #fff;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+	}
+
+	.boxshadow.ozzie > body > .geo-overlay {
+		background: rgba(255,255,255,.9);
+	}
+
+.geo-modal {
+	display: none;
+	position: fixed;
+	left: center;
+	top: center;
+	border: 1px solid #dedede;
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+	width: 400px;
+	margin-left: -221px;
+	margin-top: -105px;
+	left: 50%;
+	top: 50%;
+	background: #f7f7f7;
+	box-shadow: 0 100px 800px 400px #fff;
+}
+
+	.geo-modal > h1 {
+		margin: 0 0 20px;
+		font: 1.9em 'alwynregular';
+	}
+
+	.geo-modal > p {
+		margin: 15px 0;
+	}
+
+	.geo-modal > .confirm {
+		margin: 0 auto;
+		background: #EA6927;
+		border-radius: 15px;
+		color: #fff;
+		padding: 3px 17px;
+		display: inline;
+		text-decoration: none;
+		font: 17px'alwynregular';
+		letter-spacing: 1px;
+	}
+
+	.geo-modal > .deny {
+		display: block;
+		margin-top: 15px;
+	}
+
+.ozzie .geo-modal {
+	display: block;
+}

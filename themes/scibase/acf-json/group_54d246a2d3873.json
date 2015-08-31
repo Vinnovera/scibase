@@ -1,0 +1,47 @@
+{
+    "key": "group_54d246a2d3873",
+    "title": "Page Content",
+    "fields": [
+        {
+            "key": "field_11",
+            "label": "Header Image",
+            "name": "header_image",
+            "prefix": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "articlepageFlexslider",
+            "library": "all"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "modified": 1423673556
+}

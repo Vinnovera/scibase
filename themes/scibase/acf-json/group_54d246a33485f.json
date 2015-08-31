@@ -1,0 +1,63 @@
+{
+    "key": "group_54d246a33485f",
+    "title": "Extra Description",
+    "fields": [
+        {
+            "key": "field_7",
+            "label": "Extra Description",
+            "name": "extra_description",
+            "prefix": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "toolbar": "full",
+            "media_upload": 1,
+            "the_content": "yes",
+            "tabs": "all"
+        },
+        {
+            "key": "field_9",
+            "label": "More information",
+            "name": "more_information",
+            "prefix": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "toolbar": "full",
+            "media_upload": 1,
+            "the_content": "yes",
+            "tabs": "all"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "study.php"
+            }
+        ]
+    ],
+    "menu_order": 60,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "modified": 1423067848,
+    "local": "json"
+}

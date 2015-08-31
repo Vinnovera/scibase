@@ -1,0 +1,57 @@
+{
+    "key": "group_54d246a2f1c20",
+    "title": "Headline",
+    "fields": [
+        {
+            "key": "field_50a4e95d3cec5",
+            "label": "Headline",
+            "name": "headline",
+            "prefix": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "toolbar": "full",
+            "media_upload": 0,
+            "the_content": "no",
+            "tabs": "all"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "productpage.php"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "modified": 1423067847,
+    "local": "json"
+}

@@ -1,0 +1,202 @@
+{
+    "key": "group_54d246a302a47",
+    "title": "Startpage 50% Columns",
+    "fields": [
+        {
+            "key": "field_50a3635d8c757",
+            "label": "50% Columns",
+            "name": "one-half",
+            "prefix": "",
+            "type": "repeater",
+            "instructions": "Maximum 2 cols",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "row_min": 0,
+            "row_limit": 2,
+            "layout": "row",
+            "button_label": "Add new",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_50a3b160e956c",
+                    "label": "Choose layout",
+                    "name": "layout",
+                    "prefix": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "textpuff": "Textpuff",
+                        "colorpuff": "F\u00e4rgpuff"
+                    },
+                    "default_value": {
+                        "textpuff": "textpuff"
+                    },
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_50a3644aa5192",
+                    "label": "Title",
+                    "name": "title",
+                    "prefix": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "formatting": "none",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_50a36472a5193",
+                    "label": "Image",
+                    "name": "image",
+                    "prefix": "",
+                    "type": "image",
+                    "instructions": "Bildm\u00e5tt 248 x 201px",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "preview_size": "thumbnail",
+                    "return_format": "id",
+                    "library": "all"
+                },
+                {
+                    "key": "field_50a364eb63692",
+                    "label": "Description",
+                    "name": "desc",
+                    "prefix": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "the_content": "no",
+                    "tabs": "all"
+                },
+                {
+                    "key": "field_50a3b309ab56d",
+                    "label": "Link text",
+                    "name": "link_text",
+                    "prefix": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Read all about it",
+                    "formatting": "none",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_50a3b330ab56e",
+                    "label": "Link to",
+                    "name": "link_url",
+                    "prefix": "",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "post",
+                        "page"
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "taxonomy": []
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "startpage.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "landingpage.php"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "modified": 1423671775,
+    "local": "json"
+}

@@ -1,0 +1,34 @@
+<li class="language icon down-arrow">
+<?php
+$bcount = get_blog_count();
+global $wpdb;
+$blogs = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->blogs WHERE spam = '0' AND deleted = '0' and archived = '0' and public='1'"));
+
+if(!empty($blogs)){
+
+	global $blog_id;
+	$current_blog = get_blog_details($blog_id);
+	echo '<a href="#" class="icon '.$current_blog->blogname.'">'.$current_blog->blogname.'</a>';
+	
+	echo '<ul>';
+	foreach($blogs as $blog){
+		$details = get_blog_details($blog->blog_id);
+		if($details != false){
+			$addr = $details->siteurl;
+            $name = $details->blogname;
+            $path = $details->path;
+            if(!(($blog->blog_id == 1)&&($show_main != 1))){
+            
+            ?>
+            	<li>
+                	<a href="<?php echo $addr; ?>" class="icon <?php echo $path; ?>"><?php echo $name;?></a>
+               	</li>
+            <?php
+            }
+		}
+	}
+	echo '</ul>';
+}
+
+?>
+</li>

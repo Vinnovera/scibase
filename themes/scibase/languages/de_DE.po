@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Nicke Forsberg <nickeforsberg@rockheart.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#. Search placeholder
+#: topSearch.php:5
+msgid "Search..."
+msgstr "Suchen…"
+
+#. Copyright text
+#: footer.php:9
+msgid "copyright"
+msgstr "Copyright"
+
+#. Image Gallery download text
+#: imageGallery.php:13
+msgid "imageGalleryDownload"
+msgstr "Laden Sie high-res image"
+
+#. 404 Title
+#: 404.php:9
+msgid "404Title"
+msgstr "Seite nicht gefunden"
+
+#. 404 Title
+#: 404.php:10
+msgid "404Text"
+msgstr ""
+"Die von Ihnen angeforderte Seite konnte nicht gefunden werden. Es wurde "
+"möglicherweise entfernt wurden, hatte seinen Namen geändert, oder ist "
+"vorübergehend nicht verfügbar."
+
+#. Read more
+msgid "Read more"
+msgstr "Lesen Sie mehr"
+
+#. Hide
+msgid "Hide"
+msgstr "Verbergen"
+
+#. GEO Restrictions
+msgid "Confirm to proceed"
+msgstr ""
+
+#. GEO Restrictions
+msgid ""
+"We´re sorry. The content on this page cannot be viewed within your country "
+"due to legal restrictions, unless you are a registered doctor."
+msgstr ""
+
+#. GEO Restrictions
+msgid "Proceed"
+msgstr ""
+
+#. GEO Restrictions
+msgid "Continue as a private person"
+msgstr ""

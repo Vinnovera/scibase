@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Nicke Forsberg <nickeforsberg@rockheart.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#. Search placeholder
+#: topSearch.php:5
+msgid "Search..."
+msgstr ""
+
+#. Copyright text
+#: footer.php:9
+msgid "copyright"
+msgstr "Copyright"
+
+#. Image Gallery download text
+#: imageGallery.php:13
+msgid "imageGalleryDownload"
+msgstr "Download full size image"
+
+#. 404 Title
+#: 404.php:9
+msgid "404Title"
+msgstr "Page could not be found"
+
+#. 404 Title
+#: 404.php:10
+msgid "404Text"
+msgstr ""
+"The page you were looking for could not be found. It might have been "
+"removed, had it's name changed, or is temporarily unavailable."
+
+#. Read more
+msgid "Read more"
+msgstr ""
+
+#. Hide
+msgid "Hide"
+msgstr ""
+
+#. GEO Restrictions
+msgid "Confirm to proceed"
+msgstr ""
+
+#. GEO Restrictions
+msgid ""
+"We´re sorry. The content on this page cannot be viewed within your country "
+"due to legal restrictions, unless you are a registered doctor."
+msgstr ""
+
+#. GEO Restrictions
+msgid ""
+"Note: Nevisense is not yet approved for commercial distribution in the US."
+msgstr ""
+
+#. GEO Restrictions
+msgid "Proceed"
+msgstr ""
+
+#. GEO Restrictions
+msgid "Continue as a private person"
+msgstr ""

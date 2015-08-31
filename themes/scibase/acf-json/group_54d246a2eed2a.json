@@ -1,0 +1,45 @@
+{
+    "key": "group_54d246a2eed2a",
+    "title": "Header script",
+    "fields": [
+        {
+            "key": "field_4",
+            "label": "Header scripts",
+            "name": "header_scripts",
+            "prefix": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "readonly": 0,
+            "disabled": 0,
+            "rows": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-options"
+            }
+        ]
+    ],
+    "menu_order": 11,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "modified": 1423671775,
+    "local": "json"
+}

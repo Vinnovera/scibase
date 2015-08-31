@@ -1,0 +1,57 @@
+.survey-form {
+
+}
+
+.survey-form > .three-twelfths{
+	clear: left;
+}
+
+.survey-form label {
+	display: block;
+}
+
+.survey-form input,
+.survey-form select,
+.survey-form label {
+	margin: 15px 0 0;
+}
+
+.survey-form input,
+.survey-form .big-select {
+	width: 300px;
+}
+
+.survey-form button {
+	margin: 15px 0 0;
+}
+
+.survey-address span {
+	display: block;
+}
+
+.survey-address p.survey-address-title {
+	margin-top: 0;
+}
+
+.survey-message {
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+	.survey-message.survey-success {
+		padding: 10px;
+		background: #ea6927;
+		color: #fff;
+	}
+
+	.survey-error {
+		color: red;
+	}
+
+.survey-text-limit {
+	max-width: 600px;
+}
+
+.survey-content {
+	margin: 0 0 10px;
+}

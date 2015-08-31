@@ -1,0 +1,41 @@
+{
+    "key": "group_54d246a2eb008",
+    "title": "Logo",
+    "fields": [
+        {
+            "key": "field_50a24be8eb95c",
+            "label": "Upload",
+            "name": "logo",
+            "prefix": "",
+            "type": "image",
+            "instructions": "194 x 52px",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "preview_size": "logo",
+            "return_format": "id",
+            "library": "all"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-options"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "modified": 1423671775,
+    "local": "json"
+}

@@ -1,0 +1,84 @@
+{
+    "key": "group_54d246a3265b0",
+    "title": "Download materials",
+    "fields": [
+        {
+            "key": "field_1",
+            "label": "Download materials",
+            "name": "download_materials",
+            "prefix": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "row_min": 0,
+            "row_limit": "",
+            "layout": "table",
+            "button_label": "Add new",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_2",
+                    "label": "Image",
+                    "name": "image",
+                    "prefix": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "preview_size": "download-materials",
+                    "return_format": "id",
+                    "library": "all"
+                },
+                {
+                    "key": "field_3",
+                    "label": "Description",
+                    "name": "desc",
+                    "prefix": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "the_content": "no",
+                    "tabs": "all"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "26"
+            }
+        ]
+    ],
+    "menu_order": 40,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "modified": 1423067848,
+    "local": "json"
+}

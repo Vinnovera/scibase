@@ -1,0 +1,43 @@
+* {
+	background: none;
+}
+
+.top-menu,
+.main-menu,
+.side-menu,
+body > footer .main-menu {
+	display: none;
+}
+
+body {
+	font-size: 12pt;
+	line-height: normal;
+}
+
+.post > p,
+.post > ul,
+.post > ol,
+.post > blockquote,
+p {
+	line-height: normal;
+}
+
+body > footer {
+	border-top: 0;
+}
+
+body > .wrapper > header {
+	box-shadow: none;
+}
+
+.g.post {
+	width: 100%;
+	float: none;
+}
+
+.feature > .box,
+.post > .box {
+	padding: 0;
+	border: 0;
+	box-shadow: none;
+}
