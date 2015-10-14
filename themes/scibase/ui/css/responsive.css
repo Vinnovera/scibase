@@ -1,0 +1,96 @@
+@media (max-width: 960px) {
+
+	/*======================
+	//	Main framework
+	========================*/
+	.wrapper {
+		width: 100%;
+	}
+
+	.main {
+		width: 100%;
+	}
+
+	.body {
+		width: 100%;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+}
+
+@media (max-width: 800px) {
+
+	/*======================
+	//	Puffs
+	========================*/
+	.main .small.puff .box > div {
+		height: 240px;
+	}
+	.puff.small .fill {
+		height: 240px;
+	}
+
+
+	/*======================
+	//	Footer
+	========================*/
+	footer .main-menu ul > li {
+		margin-bottom: 10px;
+	}
+
+		footer .main-menu ul li.twitter,
+		footer .main-menu ul li.facebook,
+		footer .main-menu ul li.instagram,
+		footer .main-menu ul li.linkedin{
+
+			float: left;
+
+		}
+
+}
+
+@media (max-width: 600px) {
+
+	/*======================
+	//	Main framework
+	========================*/
+	.body {
+		padding: 0;
+	}
+
+
+	/*======================
+	//	Puffs
+	========================*/
+	.puff.small.one-third {
+		width: 100%;
+	}
+		.main .small.puff .box > div {
+			height: auto;
+		}
+		.puff.small .fill {
+			height: auto;
+			padding: 20px;
+			background: #01587a;
+			box-shadow: none;
+		}
+			.puff.small .fill > div {
+				position: relative;
+				left: auto;
+				right: auto;
+			}
+
+			.puff.small .fill.box > h2, .puff.small .fill.box > div {
+				padding: 0;
+				max-width: 300px;
+			}
+
+
+	/*======================
+	//	Footer
+	========================*/
+	
+
+}
