@@ -17,62 +17,142 @@
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
-
 }
 
 @media (max-width: 800px) {
 
 	/*======================
+	//	Main framework
+	========================*/
+	.main {
+		padding-bottom: 0;
+	}
+
+	/*======================
 	//	Puffs
 	========================*/
 	.main .small.puff .box > div {
-		height: 240px;
+		height: auto;
 	}
+
+	.puff.medium .box {
+		height: 300px;
+	}
+
 	.puff.small .fill {
-		height: 240px;
+		height: 220px;
+		margin-bottom: 20px;
+		padding: 20px;
+		background: #01587a;
+		box-shadow: none;
+	}
+		.puff.small .fill > div {
+			position: relative  ;
+			left: auto;
+			right: auto;
+		}
+
+		.puff.small .fill.box > h2, .puff.small .fill.box > div {
+			padding: 0;
+			max-width: 300px;
+		}
+
+	.g.eq-height > .gw .box {
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+	}
+
+	.g.eq-height > .gw .box:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.g.eq-height {
+		background: none;
 	}
 
 
 	/*======================
 	//	Footer
 	========================*/
-	footer .main-menu ul > li {
-		margin-bottom: 10px;
+	footer .body {
+		background: #4A4A4A;
 	}
 
-		footer .main-menu ul li.twitter,
-		footer .main-menu ul li.facebook,
-		footer .main-menu ul li.instagram,
-		footer .main-menu ul li.linkedin{
-
-			float: left;
-
+		footer .main-menu {
+			padding-left: 20px;
 		}
+
+			footer .body nav ul li, 
+			footer .body a,
+			footer .main-menu ul li.twitter a,
+			footer .main-menu ul li.linkedin a {
+				color: #FFFFFF;
+				text-shadow: none;
+			}
+
+			footer .body .copyright p {
+				color: #FFFFFF;
+				text-align: center;
+				text-shadow: none;
+			}
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
+
+	.puff.medium.one-half,
+	.puff.small.one-third {
+		margin-left: 5%;
+		width: 90%;
+	}
+
+	.puff.medium.one-half > .box ,
+	.puff.small .fill {
+		height: auto;
+	}
+
+	/*======================
+	//	Footer
+	========================*/
+	footer .body nav ul li, 
+	footer .body a,
+	footer .main-menu ul li.twitter,
+	footer .main-menu ul li.linkedin  {
+		float: none;
+		margin-top: 15px;
+	}
+}
+
+@media (max-width: 650px) {
 
 	/*======================
 	//	Main framework
 	========================*/
 	.body {
-		padding: 0;
+		width: 100%;
 	}
-
+		.main {
+			padding-bottom: 0;
+		}
 
 	/*======================
 	//	Puffs
 	========================*/
-	.puff.small.one-third {
-		width: 100%;
+
+	.puff.medium.one-half > .box {
+		height: auto;
 	}
-		.main .small.puff .box > div {
-			height: auto;
-		}
+
+	.puff.medium.one-half,
+	.puff.small.one-third {
+		margin-left: 5%;
+		width: 90%;
+	}
+
 		.puff.small .fill {
 			height: auto;
 			padding: 20px;
+			margin-bottom: 20px;
 			background: #01587a;
 			box-shadow: none;
 		}
@@ -86,11 +166,4 @@
 				padding: 0;
 				max-width: 300px;
 			}
-
-
-	/*======================
-	//	Footer
-	========================*/
-	
-
 }
