@@ -3,7 +3,7 @@
 <head>
 <meta charset="<?php bloginfo('charset'); ?>" />
 <title><?php wp_title('|'); ?></title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1, IE=edge,chrome=1">
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/modernizr.custom.15992.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>">
@@ -41,5 +41,11 @@
 					<?php include(TEMPLATEPATH . '/components/mainMenu.php'); ?>
 				</ul>
 			</nav>
+
+			<div class="mobile-menu">
+				<?php include(TEMPLATEPATH . '/components/mobileMenu.php'); ?>
+			</div>
+
+
 		</div>
 	</header>	

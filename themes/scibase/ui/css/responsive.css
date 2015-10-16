@@ -1,5 +1,5 @@
+/************************* 960px ***********************/
 @media (max-width: 960px) {
-
 	/*======================
 	//	Main framework
 	========================*/
@@ -12,14 +12,126 @@
 	}
 
 	.body {
-		width: 100%;
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
+		width: 100%;
 	}
+
+	.g.eq-height {
+		background: none;
+	}
+
+	/*======================
+	//	Puffs
+	========================*/
+	.puff.medium.one-half.puff > .box > h2 {
+		float: none;
+		display: block;
+		width: 150px;
+	}
+
+	.puff.medium.one-half.puff:first-of-type > .box > figure {
+			float: right;
+			width: 50%;
+		}
+
+		.puff.medium.one-half.puff:first-of-type > .box > figure > img {
+			margin-right: 0;
+			float: right;
+		}
+
+	.puff.medium.one-half.puff:first-of-type > .box > div {
+		float: right;
+		padding: 2%;
+		width: 46%;
+	}
+
+		.puff.medium.one-half.puff > .box:after {
+			clear: both;
+			content: "";
+			display: table;
+		}
+
 }
 
+@media (min-width: 800px) {
+	.mobile-menu {
+		display: none;
+	}
+}
+/************************* 800px ***********************/
 @media (max-width: 800px) {
+	header > .body {
+		padding: 0;
+	}
+
+	.main > .body {
+		padding-top: 60px;
+	}
+	/*======================
+	//	Menu
+	========================*/
+	header > .body > .top-menu, 
+	header > .body > .main-menu {
+		display: none;
+	}
+
+	header > .body > a > img {
+		display: block;
+		margin: 0 auto;
+		padding-bottom: 37px;
+	}
+
+	header .logo {
+		float: none;
+	}
+
+	header > .body > .mobile-menu {
+		background: #EB6928;
+		height: 50px;
+		width: 100%;
+	}	
+		header > .body > .mobile-menu > button {
+			width: 50px;
+			height: 34px;
+	  		position: relative;
+	        -webkit-appearance: none;
+	  		border: none;
+	    	margin-top: 8px;
+	    	margin-right: 15px;
+	    	margin-bottom: 8px;
+	  		background: transparent;
+	  		text-indent: -9999px;
+	  	}
+
+	  	header > .body > .mobile-menu > button:after {
+	  			width: 22px;
+	  			content: '';
+	  			position: absolute;
+	  			left: 10px;
+	  			bottom: 9px;
+	  			right: 11px;
+	  			border-bottom: 3px solid white;
+			}
+			
+			header > .body > .mobile-menu > button:before {
+	    		content: '';
+	    		width: 22px;
+	    		height: 4px;
+	  			position: absolute;
+	  			left: 10px;
+	  			right: 11px;
+	  			top: 11px;
+	  			margin-top: -3px;
+	  			border-top: 3px solid white;
+	  			border-bottom: 3px solid white;
+			}
+		}
+
+	header > .body > .mobile-menu > nav {
+		display: none;
+	}
 
 	/*======================
 	//	Main framework
@@ -31,44 +143,99 @@
 	/*======================
 	//	Puffs
 	========================*/
-	.main .small.puff .box > div {
+	.puff.medium.one-half.puff > .box {
 		height: auto;
+		margin-left: 0;
+		padding: 5% 0;
 	}
-
-	.puff.medium .box {
-		height: 300px;
-	}
-
-	.puff.small .fill {
-		height: 220px;
-		margin-bottom: 20px;
-		padding: 20px;
-		background: #01587a;
-		box-shadow: none;
-	}
-		.puff.small .fill > div {
-			position: relative  ;
-			left: auto;
-			right: auto;
+		.main .medium.puff .box > .break-border {
+			margin-right: 0;
 		}
 
-		.puff.small .fill.box > h2, .puff.small .fill.box > div {
-			padding: 0;
-			max-width: 300px;
+		.puff.medium.one-half.puff > .box > div {
+			margin-left: 0;
+			padding: 2%;		
 		}
 
-	.g.eq-height > .gw .box {
+		.puff.medium.one-half.puff:first-of-type > .box > figure {
+			float: right;
+			width: 40%;
+		}
+
+		.puff.medium.one-half.puff:first-of-type > .box > div {
+			float: right;
+			padding: 2%;
+			width: 56%;
+		}
+
+			.puff.medium.one-half.puff > .box:after {
+				clear: both;
+				content: "";
+				display: table;
+			}
+
+
+	.puff.medium.one-half,
+	.puff.small.one-third {
+		margin-left: 2%;
+		width: 96%;
+	}
+
+		.puff.small .fill {
+			background: #01587a;
+			border: solid white 10px;
+			height: auto;
+			margin-bottom: 20px;
+			padding: 20px;
+		}
+			.puff.small .fill > div {
+				height: auto;
+				left: auto;
+				position: relative;
+				right: auto;
+			}
+
+			.puff.small .fill.box > h2, .puff.small .fill.box > div {
+				max-width: 450px;
+				padding: 0;
+			}
+
+	.g.eq-height > .gw > .box {
 		margin-bottom: 20px;
 		padding-bottom: 10px;
 	}
 
-	.g.eq-height > .gw .box:last-of-type {
-		margin-bottom: 0;
+		.g.eq-height > .gw .box:last-of-type {
+			margin-bottom: 0;
+		}
+
+	.g.three-quarters {
+		width: 100%;
 	}
 
-	.g.eq-height {
-		background: none;
-	}
+	/*======================
+	//	Page
+	========================*/
+
+		.main .body .gw nav {
+			display: none;
+		}
+
+		.main .feature .slider {
+			float: none;
+			padding: 35px 5% 0 5%;
+			width: 90%;
+		}
+		.main .feature .post {
+			float: none;
+			padding: 35px;
+			width: 80%;
+		}
+
+			.contact .readmore {
+				float: none;
+				text-align: left;
+			}
 
 
 	/*======================
@@ -98,19 +265,8 @@
 
 }
 
+/************************* 750px ***********************/
 @media (max-width: 750px) {
-
-	.puff.medium.one-half,
-	.puff.small.one-third {
-		margin-left: 5%;
-		width: 90%;
-	}
-
-	.puff.medium.one-half > .box ,
-	.puff.small .fill {
-		height: auto;
-	}
-
 	/*======================
 	//	Footer
 	========================*/
@@ -123,47 +279,39 @@
 	}
 }
 
-@media (max-width: 650px) {
-
-	/*======================
-	//	Main framework
-	========================*/
-	.body {
-		width: 100%;
-	}
-		.main {
-			padding-bottom: 0;
-		}
-
-	/*======================
-	//	Puffs
-	========================*/
-
-	.puff.medium.one-half > .box {
-		height: auto;
-	}
-
-	.puff.medium.one-half,
-	.puff.small.one-third {
-		margin-left: 5%;
+/************************* 500px ***********************/
+@media (max-width: 500px) {
+	.puff.medium.one-half.puff:first-of-type > .box > div,
+	.puff.medium.one-half.puff > .box > div {
+		display: block;
+		padding: 5%;
 		width: 90%;
 	}
 
-		.puff.small .fill {
-			height: auto;
-			padding: 20px;
-			margin-bottom: 20px;
-			background: #01587a;
-			box-shadow: none;
+		.puff.medium.one-half.puff:first-of-type > .box > figure  {
+			display: block;
+			margin-right: 0;
+			width: 100%;
 		}
-			.puff.small .fill > div {
-				position: relative;
-				left: auto;
-				right: auto;
-			}
 
-			.puff.small .fill.box > h2, .puff.small .fill.box > div {
-				padding: 0;
-				max-width: 300px;
-			}
+	/*======================
+	//	Page - post 
+	========================*/
+	.post-list .box > .contact figure {
+		float: none;
+		width: 100%;	
+	}
+
+		.post-list .box > .contact figure > img {
+			width: 60%;	
+		}
+
+	.post .download > figure,
+	.post .download > .bd {
+		float: none;
+	}
+
+		.post .download > figure > img {
+			width: 60%;
+		}
 }

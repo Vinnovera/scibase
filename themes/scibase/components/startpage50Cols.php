@@ -9,12 +9,12 @@
 				<?php if(get_sub_field('image')) { ?>
 					<div class="box">
 						<a href="<?php the_sub_field('link_url'); ?>" class="overlay">
-							<?php $image = wp_get_attachment_image_src(get_sub_field('image'), 'startpageHalfPuff'); ?>
-							<img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(get_sub_field('image')); ?>">
-							
 							<?php if(get_sub_field('title')): ?>
 								<h2><?php the_sub_field('title'); ?></h2>
 							<?php endif; ?>
+
+							<?php $image = wp_get_attachment_image_src(get_sub_field('image'), 'startpageHalfPuff'); ?>
+							<img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(get_sub_field('image')); ?>">
 							
 							<div>
 								<?php if(get_sub_field('desc')): ?>
@@ -53,14 +53,16 @@
 			
 				<?php if(get_sub_field('image')) { ?>
 					<div class="box">					
-						<figure class="break-border">
-							<?php $image = wp_get_attachment_image_src(get_sub_field('image'), 'startpageHalfPuffRight'); ?>
-							<img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(get_sub_field('image')); ?>">
-						</figure>
 						<?php if(get_sub_field('title')): ?>
 						<h2>
 							<a href="<?php the_sub_field('link_url'); ?>"><?php the_sub_field('title'); ?></a>
 						</h2>
+
+						<figure class="break-border">
+							<?php $image = wp_get_attachment_image_src(get_sub_field('image'), 'startpageHalfPuffRight'); ?>
+							<img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(get_sub_field('image')); ?>">
+						</figure>
+						
 						<?php endif; ?>
 						<div>
 							<?php if(get_sub_field('desc')): ?>
