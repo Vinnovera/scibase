@@ -127,12 +127,7 @@
 	  			border-top: 3px solid white;
 	  			border-bottom: 3px solid white;
 			}
-		}
-
-	header > .body > .mobile-menu > nav {
-		display: none;
-	}
-
+		
 	/*======================
 	//	Main framework
 	========================*/
@@ -143,42 +138,32 @@
 	/*======================
 	//	Puffs
 	========================*/
+	.puff.medium.one-half.puff {
+		display: inline-block;
+		width: 50%;
+	}
+
 	.puff.medium.one-half.puff > .box {
-		height: auto;
-		margin-left: 0;
+		height: 400px;
 		padding: 5% 0;
 	}
-		.main .medium.puff .box > .break-border {
-			margin-right: 0;
-		}
 
-		.puff.medium.one-half.puff > .box > div {
-			margin-left: 0;
-			padding: 2%;		
-		}
-
-		.puff.medium.one-half.puff:first-of-type > .box > figure {
-			float: right;
-			width: 40%;
-		}
-
-		.puff.medium.one-half.puff:first-of-type > .box > div {
-			float: right;
-			padding: 2%;
-			width: 56%;
-		}
-
-			.puff.medium.one-half.puff > .box:after {
-				clear: both;
-				content: "";
-				display: table;
-			}
-
-
-	.puff.medium.one-half,
-	.puff.small.one-third {
-		margin-left: 2%;
+	.puff.medium.one-half.puff:first-of-type > .box > div,
+	.puff.medium.one-half.puff > .box > div {
+		display: block;
+		padding: 2%;
 		width: 96%;
+	}
+
+		.puff.medium.one-half.puff:first-of-type > .box > figure  {
+			display: block;
+			margin-right: 0;
+			width: 100%;
+		}
+
+	.puff.small.one-third {
+		margin-left: 0;
+		width: 100%;
 	}
 
 		.puff.small .fill {
@@ -209,34 +194,44 @@
 			margin-bottom: 0;
 		}
 
-	.g.three-quarters {
+	.g.three-quarters, .g.one-quarter {
 		width: 100%;
 	}
+
+	.g.one-quarter {
+		float: right;
+	}
+
+	.g.three-quarters.post {
+		float: right;
+	}
+
+
+
 
 	/*======================
 	//	Page
 	========================*/
+	.main .feature .slider {
+		float: none;
+		padding: 35px 5% 0 5%;
+		width: 90%;
+	}
 
-		.main .body .gw nav {
-			display: none;
-		}
+	.main .feature .post {
+		float: none;
+		padding: 35px;
+		width: 80%;
+	}
 
-		.main .feature .slider {
+		.contact .readmore {
 			float: none;
-			padding: 35px 5% 0 5%;
-			width: 90%;
-		}
-		.main .feature .post {
-			float: none;
-			padding: 35px;
-			width: 80%;
+			text-align: left;
 		}
 
-			.contact .readmore {
-				float: none;
-				text-align: left;
-			}
-
+	.main .body .gw .g .one-quarter .side-menu > .box {
+		width: 100%;
+	}
 
 	/*======================
 	//	Footer
@@ -279,6 +274,97 @@
 	}
 }
 
+
+/************************* 650px ***********************/
+
+@media (max-width: 650px) {
+
+		.puff.medium.one-half.puff {
+		display: inline-block;
+		margin: 2%;
+		width: 96%;
+	}
+
+	.puff.medium.one-half.puff > .box {
+		padding: 5% 0;
+	}
+
+	.puff.medium.one-half.puff:first-of-type > .box > div,
+	.puff.medium.one-half.puff > .box > div {
+		display: block;
+		padding: 5%;
+		width: 90%;
+	}
+
+		.puff.medium.one-half.puff:first-of-type > .box > figure  {
+			display: block;
+			margin-right: 0;
+			width: 100%;
+		}
+
+	.puff.medium.one-half.puff > .box {
+		height: auto;
+		margin-left: 0;
+		padding: 5% 0;
+	}
+		.main .medium.puff .box > .break-border {
+			margin-right: 0;
+		}
+
+		.puff.medium.one-half.puff > .box > div {
+			margin-left: 0;
+			padding: 2%;		
+		}
+
+		.puff.medium.one-half.puff:first-of-type > .box > figure {
+			float: right;
+			width: 40%;
+		}
+
+		.puff.medium.one-half.puff:first-of-type > .box > div {
+			float: right;
+			padding: 2%;
+			width: 56%;
+		}
+
+			.puff.medium.one-half.puff > .box:after {
+				clear: both;
+				content: "";
+				display: table;
+			}
+
+
+	.puff.medium.one-half,
+	.puff.small.one-third {
+		margin: 2%;
+		width: 96%;
+	}
+
+			.puff.small .fill > div {
+				height: auto;
+				left: auto;
+				position: relative;
+				right: auto;
+			}
+
+			.puff.small .fill.box > h2, .puff.small .fill.box > div {
+				padding: 0;
+			}
+
+	.g.eq-height > .gw > .box {
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+	}
+
+		.g.eq-height > .gw .box:last-of-type {
+			margin-bottom: 0;
+		}
+
+	.g.three-quarters {
+		width: 100%;
+	}
+}
+
 /************************* 500px ***********************/
 @media (max-width: 500px) {
 	.puff.medium.one-half.puff:first-of-type > .box > div,
@@ -292,6 +378,10 @@
 			display: block;
 			margin-right: 0;
 			width: 100%;
+		}
+
+		.main .puff h1, h3 {
+			width: 80%;
 		}
 
 	/*======================
