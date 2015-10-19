@@ -20,12 +20,6 @@ get_header();
 			}
 			
 			if ($children) {
-				echo'<nav class="g one-quarter side-menu">';
-					echo '<div class="box">';
-						include(TEMPLATEPATH . '/components/subMenu.php');
-					echo '</div>';
-				echo'</nav>';
-				
 				echo '<article class="g three-quarters post-list">';
 					echo '<div class="box">';
 						echo '<section class="post">';
@@ -34,6 +28,12 @@ get_header();
 						include(TEMPLATEPATH . '/components/contactCardsSwe.php');
 					echo '</div>';
 				echo '</article>';
+
+				echo'<nav class="g one-quarter side-menu">';
+					echo '<div class="box">';
+						include(TEMPLATEPATH . '/components/subMenu.php');
+					echo '</div>';
+				echo'</nav>';
 			}
 			
 			else {
@@ -51,7 +51,6 @@ get_header();
 					
 					echo '</div>';
 				echo '</div>';
-			
 			}
 			
 			?>	

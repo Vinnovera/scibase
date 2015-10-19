@@ -30,13 +30,7 @@
 			}
 
 			
-			if ($children) {
-				echo'<nav class="g one-quarter side-menu">';
-					echo '<div class="box">';
-						include(TEMPLATEPATH . '/components/subMenu.php');
-					echo '</div>';
-				echo'</nav>';
-				
+			if ($children) {				
 				echo '<article class="g three-quarters post">';
 					echo '<div class="box">';
 						include(TEMPLATEPATH . '/components/articlepageFlexslider.php');
@@ -47,6 +41,12 @@
 						include(TEMPLATEPATH . '/components/video.php');
 					echo '</div>';
 				echo '</article>';
+
+				echo'<nav class="g one-quarter side-menu">';
+					echo '<div class="box">';
+						include(TEMPLATEPATH . '/components/subMenu.php');
+					echo '</div>';
+				echo'</nav>';
 				
 				if ( is_page('image-gallery')) { 
 					include(TEMPLATEPATH . '/components/imageGallery.php');	

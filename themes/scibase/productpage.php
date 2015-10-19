@@ -14,16 +14,16 @@ get_header();
 					<?php include(TEMPLATEPATH . '/components/headline.php'); ?>
 				</div>
 			</div>
-			<nav class="g one-quarter side-menu">
-				<div class="box">
-					<?php include(TEMPLATEPATH . '/components/subMenu.php'); ?>
-				</div>
-			</nav>
 			<article class="g three-quarters post">
 				<div class="box">
 					<?php include(TEMPLATEPATH . '/components/content.php'); ?>
 				</div>
 			</article>
+			<nav class="g one-quarter side-menu">
+				<div class="box">
+					<?php include(TEMPLATEPATH . '/components/subMenu.php'); ?>
+				</div>
+			</nav>
 		</div>
 	</div>
 </div>
