@@ -1,3 +1,4 @@
+
 </div>
 <footer>
 	<div class="body">
@@ -11,6 +12,10 @@
 		</div>
 	</div>
 </footer>
+
+		</div> <!--/slider-inner -->
+	</div> <!--/slider -->
+</div><!-- /pusher -->
 <?php wp_footer(); ?>
 
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/jquery.js"></script>
@@ -18,6 +23,9 @@
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/adaptive_iframe.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/jquery.fitvids.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/froogaloop.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/classie.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/mlpushmenu.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/modernizr.custom.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/script.js"></script>
 </body>
 </html>

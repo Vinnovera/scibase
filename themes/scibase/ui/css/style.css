@@ -27,10 +27,6 @@ html {
 	height: 100%;
 }
 
-body {
-	overflow: scroll;
-}
-
 img,
 iframe{max-width: 100%;}
 
@@ -129,6 +125,26 @@ ul, ol {
 	margin: 12px 0;
 }
 
+/* highlight dot */
+.mark > div {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 1px 1px 0px #e5e5e5;
+}
+
+	.mark > div > div {
+		height: 10px;
+		width: 10px;
+		border-radius: 5px;
+		background: #ea6927;
+		box-shadow: inset 0 1px 1px 0px #cf662a;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+	}
+
 /* Menus */
 .top-menu ul,
 .main-menu ul {
@@ -155,10 +171,8 @@ nav ul li.twitter,
 nav ul li.facebook,
 nav ul li.instagram,
 nav ul li.linkedin{
-
 	display: block;
 	height: 16px;
-
 }
 
 nav ul li.facebook a:before,
@@ -188,15 +202,14 @@ nav ul li.linkedin a:hover:before{background-position: 128px 16px;}
 //	HEADER
 ==============*/
 
-body > .wrapper > header {
+body .wrapper header {
 	height: 125px;
 	box-shadow: 0 2px 1px -1px #e5e5e5;
 	position: relative;
-	z-index: 5;
 	background: #fff;
 }
 
-body.concept > header {
+body.concept header {
 	height: 131px;
 }
 
@@ -214,7 +227,6 @@ body.concept .slider img {
 	header .main-menu {
 		clear: right;
 		float: right;
-
 	}
 
 	header .top-menu > ul {
@@ -269,30 +281,10 @@ header .main-menu li > .mark {
 	display: none;
 }
 
-header .main-menu li > .mark > div{
-	width: 20px;
-	height: 20px;
-	border-radius: 10px;
-	background: #fff;
-	box-shadow: 0 1px 1px 0px #e5e5e5;
-}
-
 header .main-menu li:first-child > .mark > div{
 	position: relative;
 	left: -50%;
 }
-
-	header .main-menu li > .mark > div > div{
-		height: 10px;
-		width: 10px;
-		border-radius: 5px;
-		background: #ea6927;
-		box-shadow: inset 0 1px 1px 0px #cf662a;
-		position: absolute;
-		top: 5px;
-		left: 5px;
-	}
-
 	header .main-menu li.current-page-ancestor > a,
 		header .main-menu li.current-menu-item > a {
 		color: #da5b10;
@@ -446,7 +438,7 @@ header .main-menu li:first-child > .mark > div{
 //  Main content area
 =======================*/
 
-body > .wrapper > .main {
+body .wrapper .main {
 	position: relative;
 	z-index: 0;
 	overflow: hidden;
@@ -1029,14 +1021,13 @@ body > .wrapper > .main {
 		list-style-type: none;
 	}
 
-
 		.slides:after {
 			clear: both;
-	    content: ".";
-	    display: block;
-	    height: 0;
-	    line-height: 0;
-	    visibility: hidden;
+		    content: ".";
+		    display: block;
+		    height: 0;
+		    line-height: 0;
+		    visibility: hidden;
 		}
 
 			.slides > li {

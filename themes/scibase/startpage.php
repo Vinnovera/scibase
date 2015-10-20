@@ -1,11 +1,9 @@
 <?php 
 /*
 Template Name: Startpage
-
 */
 get_header(); 
 ?>
-
 <div class="main">
 	<div class="body">
 		<div class="gw">

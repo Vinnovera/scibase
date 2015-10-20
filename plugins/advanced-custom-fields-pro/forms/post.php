@@ -40,7 +40,7 @@ class acf_form_post {
 		
 		// save
 		add_filter('wp_insert_post_empty_content',		array($this, 'wp_insert_post_empty_content'), 10, 2);
-		add_action('save_post', 						array($this, 'save_post'), 10, 1);
+		add_action('save_post', 						array($this, 'save_post'), 10, 2);
 		
 		
 		// ajax
@@ -215,13 +215,13 @@ class acf_form_post {
 					$style_found = true;
 					
 					$this->style = acf_get_field_group_style( $field_group );
+					
 				}
 				
 			}
-			// foreach($acfs as $acf)
+			
 		}
-		// if($acfs)
-		
+				
 		
 		// Allow 'acf_after_title' metabox position
 		add_action('edit_form_after_title', array($this, 'edit_form_after_title'));
@@ -288,12 +288,27 @@ class acf_form_post {
 		extract( $args ); // all variables from the args argument
 		
 		
-		// classes
-		$class = 'acf-postbox ' . $field_group['style'];
-		$toggle_class = 'acf-postbox-toggle';
+		// vars
+		$o = array(
+			'id'			=> $id,
+			'key'			=> $field_group['key'],
+			'style'			=> $field_group['style'],
+			'label'			=> $field_group['label_placement'],
+			'edit_url'		=> '',
+			'edit_title'	=> __('Edit field group', 'acf'),
+			'visibility'	=> $visibility
+		);
 		
 		
-		// render fields, or render a replace-me div
+		// edit_url
+		if( $field_group['ID'] && acf_current_user_can_admin() ) {
+			
+			$o['edit_url'] = admin_url('post.php?post=' . $field_group['ID'] . '&action=edit');
+				
+		}
+		
+			
+		// load and render fields	
 		if( $visibility ) {
 			
 			// load fields
@@ -301,47 +316,24 @@ class acf_form_post {
 			
 			
 			// render
-			if( $field_group['label_placement'] == 'left' ) {
-				
-				?>
-				<table class="acf-table">
-					<tbody>
-						<?php acf_render_fields( $this->post_id, $fields, 'tr', $field_group['instruction_placement'] ); ?>
-					</tbody>
-				</table>
-				<?php
-				
-			} else {
-				
-				acf_render_fields( $this->post_id, $fields, 'div', $field_group['instruction_placement'] );
-				
-			}
-			
+			acf_render_fields( $this->post_id, $fields, 'div', $field_group['instruction_placement'] );
+		
+		// render replace-me div
 		} else {
 			
-			// update classes
-			$class .= ' acf-hidden';
-			$toggle_class .= ' acf-hidden';
-			
 			echo '<div class="acf-replace-with-fields"><div class="acf-loading"></div></div>';
-			
+		
 		}
+	
+	?>
+<script type="text/javascript">
+if( typeof acf !== 'undefined' ) {
 		
-		
-		// inline script
-		?>
-		<div class="acf-hidden">
-			<script type="text/javascript">
-			(function($) {
-				
-				$('#<?php echo $id; ?>').addClass('<?php echo $class; ?>').removeClass('hide-if-js');
-				$('#<?php echo $id; ?> > .inside').addClass('acf-fields acf-cf');
-				$('#adv-settings label[for="<?php echo $id; ?>-hide"]').addClass('<?php echo $toggle_class; ?>');
-				
-			})(jQuery);	
-			</script>
-		</div>
-		<?php
+	acf.postbox.render(<?php echo json_encode($o); ?>);	
+
+}
+</script>
+<?php
 		
 	}
 	
@@ -425,21 +417,7 @@ class acf_form_post {
 				
 				
 				// render
-				if( $field_group['label_placement'] == 'left' ) {
-					
-					?>
-					<table class="acf-table">
-						<tbody>
-							<?php acf_render_fields( $options['post_id'], $fields, 'tr', $field_group['instruction_placement'] ); ?>
-						</tbody>
-					</table>
-					<?php
-					
-				} else {
-					
-					acf_render_fields( $options['post_id'], $fields, 'div', $field_group['instruction_placement'] );
-				
-				}
+				acf_render_fields( $options['post_id'], $fields, 'div', $field_group['instruction_placement'] );
 				
 				
 				$html = ob_get_clean();
@@ -509,10 +487,18 @@ class acf_form_post {
 	*  @return	$post_id (int)
 	*/
 	
-	function save_post( $post_id ) {
+	function save_post( $post_id, $post ) {
 		
 		// do not save if this is an auto save routine
 		if( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+			
+			return $post_id;
+			
+		}
+		
+		
+		// bail early if is acf-field-group or acf-field
+		if( in_array($post->post_type, array('acf-field', 'acf-field-group'))) {
 			
 			return $post_id;
 			

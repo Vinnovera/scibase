@@ -33,6 +33,7 @@
 			if ($children) {				
 				echo '<article class="g three-quarters post">';
 					echo '<div class="box">';
+						include(TEMPLATEPATH . '/components/content-header.php');
 						include(TEMPLATEPATH . '/components/articlepageFlexslider.php');
 						include(TEMPLATEPATH . '/components/content.php');
 						if ( is_page('download-materials')) { 
@@ -58,6 +59,7 @@
 			else {
 				echo '<article class="g '.$page_width.' post">';
 					echo '<div class="box">';
+						include(TEMPLATEPATH . '/components/content-header.php');
 						include(TEMPLATEPATH . '/components/articlepageFlexslider.php');
 						include(TEMPLATEPATH . '/components/content.php');
 						include(TEMPLATEPATH . '/components/video.php');

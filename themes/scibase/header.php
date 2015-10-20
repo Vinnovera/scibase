@@ -19,33 +19,40 @@
 <?php if(get_field('header_scripts', 'option')) { ?>
 	<?php the_field('header_scripts', 'option'); ?>
 <?php }?>
-<div class="wrapper">
-	<header>
-		<div class="body">
-			<a href="<?php bloginfo("url"); ?>" class="logo">
-				<?php include(TEMPLATEPATH . '/components/logo.php'); ?>
-			</a>
-			<nav class="top-menu">
-				<ul>
-					<?php include(TEMPLATEPATH . '/components/topMenu.php'); ?>
-				</ul>
-				<ul class="utility">
-					<li class="search">
-						<?php include(TEMPLATEPATH . '/components/topSearch.php'); ?>
-					</li>
-					<?php include(TEMPLATEPATH . '/components/languageMenu.php'); ?>
-				</ul>
-			</nav>
-			<nav class="main-menu">
-				<ul>
-					<?php include(TEMPLATEPATH . '/components/mainMenu.php'); ?>
-				</ul>
-			</nav>
-
+	<div class="wrapper">
+		<div class="mp-pusher" id="mp-pusher">	
 			<div class="mobile-menu">
 				<?php include(TEMPLATEPATH . '/components/mobileMenu.php'); ?>
 			</div>
+		<div class="scroller">
+			<div class="scroller-inner">	
+				<header>
+					<div class="body">
+						<a href="<?php bloginfo("url"); ?>" class="logo">
+							<?php include(TEMPLATEPATH . '/components/logo.php'); ?>
+						</a>
+						<nav class="top-menu">
+							<ul>
+								<?php include(TEMPLATEPATH . '/components/topMenu.php'); ?>
+							</ul>
+							<ul class="utility">
+								<li class="search">
+									<?php include(TEMPLATEPATH . '/components/topSearch.php'); ?>
+								</li>
+								<?php include(TEMPLATEPATH . '/components/languageMenu.php'); ?>
+							</ul>
+						</nav>
+						<nav class="main-menu">
+							<ul>
+								<?php include(TEMPLATEPATH . '/components/mainMenu.php'); ?>
+							</ul>
+						</nav>
+
+						
+					</div>
+				</header>
+				
 
 
-		</div>
-	</header>	
+
+	

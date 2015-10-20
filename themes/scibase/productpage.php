@@ -8,14 +8,17 @@ get_header();
 <div class="main">
 	<div class="body">
 		<div class="gw">
+			<?php if(get_field('flexslider')): ?>
 			<div class="g one-whole feature">
 				<div class="box">
 					<?php include(TEMPLATEPATH . '/components/productpageFlexslider.php'); ?>
 					<?php include(TEMPLATEPATH . '/components/headline.php'); ?>
 				</div>
 			</div>
+			<?php endif;?>
 			<article class="g three-quarters post">
 				<div class="box">
+					<?php include(TEMPLATEPATH . '/components/content-header.php'); ?>
 					<?php include(TEMPLATEPATH . '/components/content.php'); ?>
 				</div>
 			</article>
