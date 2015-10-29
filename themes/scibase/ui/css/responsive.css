@@ -81,6 +81,10 @@
 		display: none;
 	}
 
+	.mp-pusher{
+		transform: none!important;
+	}
+
 	.g {
 		float: right;
 	}

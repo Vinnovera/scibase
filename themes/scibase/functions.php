@@ -197,7 +197,7 @@ class mobileMenu_walker_nav_menu extends Walker_Nav_Menu {
 	// rebuild output for sub-menus
 	function start_lvl( &$output, $depth ) {
 	    // build html
-	    $output .= "\n" . $indent . '<div class="mp-level"><h2>'.$this->curItem->title.'</h2><ul>' . "\n";
+	    $output .= "\n" . $indent . '<div class="mp-level"><h2>'.$this->curItem->title.'</h2><a class="mp-back" href="#">'.__('Back', 'scibase').'</a><ul>' . "\n";
 	}
 
 	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
