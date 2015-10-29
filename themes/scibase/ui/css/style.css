@@ -1090,7 +1090,7 @@ body .wrapper .main {
 
 					.frontpage-image .content p {
 						background: #ea6927;
-						//background: rgba(234,105,39,.8);
+						margin: 5px 0 10px
 					}
 
 						.frontpage-image .content p a,
