@@ -103,7 +103,7 @@
 	}
 
 	.main > .body {
-		padding-top: 40px;
+		padding-top: 10px;
 	}
 
 	body .wrapper .main {
@@ -130,7 +130,7 @@
 	/*======================
 	//	Main framework
 	========================*/
-	.slider {
+	#slider-wrapper {
 		display: none;
 	}
 
@@ -306,10 +306,11 @@
 
 @media (max-width: 650px) {
 
-	.puff.medium.one-half.puff {
+	.puff.medium.one-half.puff,
+	.puff.small.one-third {
 		display: inline-block;
-		margin: 2%;
-		width: 96%;
+		margin: 2% 0;
+		width: 100%;
 	}
 
 		.puff.medium.one-half.puff > .box {
@@ -334,7 +335,7 @@
 			}
 
 			.puff.medium.one-half.puff:first-of-type > .box > div {
-				float: right;
+				float: left;
 				padding: 2%;
 				width: 56%;
 			}
@@ -349,30 +350,29 @@
 				display: table;
 			}
 
-	.puff.small.one-third {
-		margin: 2%;
-		width: 96%;
+	.puff.small .fill > div {
+		height: auto;
+		left: auto;
+		position: relative;
+		right: auto;
 	}
 
-		.puff.small .fill > div {
-			height: auto;
-			left: auto;
-			position: relative;
-			right: auto;
+	.puff.small .fill.box > h2, .puff.small .fill.box > div {
+		padding: 0;
+	}
+
+	.g.eq-height {
+		padding-bottom: 0;
+	}
+
+		.g.eq-height > .gw > .box {
+			margin-bottom: 20px;
+			padding-bottom: 10px;
 		}
 
-		.puff.small .fill.box > h2, .puff.small .fill.box > div {
-			padding: 0;
+		.g.eq-height > .gw .box:last-of-type {
+			margin-bottom: 0;
 		}
-
-	.g.eq-height > .gw > .box {
-		margin-bottom: 20px;
-		padding-bottom: 10px;
-	}
-
-	.g.eq-height > .gw .box:last-of-type {
-		margin-bottom: 0;
-	}
 
 	.g.three-quarters {
 		width: 100%;

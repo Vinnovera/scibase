@@ -1056,13 +1056,13 @@ body .wrapper .main {
 						float: left;
 						font-weight: normal;
 						font: 1.76923076923077em alwynregular, Arial, sans-serif;
-						white-space: nowrap;
 						color: #fff;
 					}
 
 					.frontpage-image .content h2 span,
 					.slides .content > h2 > span {
-						padding: 7px 32px 6px 20px;
+						line-height: 1.1em;
+						padding: 15px;
 						background: #ea6927;
 						float: left;
 						clear: both;
@@ -1076,13 +1076,21 @@ body .wrapper .main {
 
 					.frontpage-image .content p,
 					.slides .content > p {
-						padding: 10px 34px 10px 20px;
+						padding: 10px 15px;
 						margin: 0;
 						font: 1.6em alwynregular, Arial, sans-serif;
 						background: #ea6927;
-						background: rgba(234,105,39,.8);
 						clear: left;
 						float: left;
+					}
+
+					.slides .content > p {
+						background: rgba(234,105,39,.8);
+					}
+
+					.frontpage-image .content p {
+						background: #ea6927;
+						//background: rgba(234,105,39,.8);
 					}
 
 						.frontpage-image .content p a,
