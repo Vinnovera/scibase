@@ -1050,7 +1050,7 @@ body .wrapper .main {
 				.slides > li > img {
 					display: block;
 				}
-
+					.frontpage-image .content h2,
 					.slides .content > h2 {
 						margin-bottom:11px;
 						float: left;
@@ -1060,6 +1060,7 @@ body .wrapper .main {
 						color: #fff;
 					}
 
+					.frontpage-image .content h2 span,
 					.slides .content > h2 > span {
 						padding: 7px 32px 6px 20px;
 						background: #ea6927;
@@ -1068,10 +1069,12 @@ body .wrapper .main {
 						margin-bottom: -9px;
 					}
 
+					.frontpage-image .content h2 span ~ span, 
 					.slides .content > h2 span ~ span {
 						padding-right: 15px;
 					}
 
+					.frontpage-image .content p,
 					.slides .content > p {
 						padding: 10px 34px 10px 20px;
 						margin: 0;
@@ -1082,9 +1085,17 @@ body .wrapper .main {
 						float: left;
 					}
 
+						.frontpage-image .content p a,
 						.slides .content > p a{
 							color: #fff;
 						}
+
+						.frontpage-image .content:after {
+							clear: both;
+							content: "";
+							display: block;
+						}
+						
 	.slider > .flex-direction-nav {
 		list-style-type: none;
 		margin: 0;
@@ -1129,6 +1140,57 @@ body .wrapper .main {
 			.slider > .flex-direction-nav > li > a.flex-prev.flex-disabled {
 				background-position: -41px -43px;
 			}
+
+/*==================
+//	FRONTPAGE IMAGE
+ ===================*/ 
+.frontpage-image ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+ 
+.box .image-content > h2 {
+	margin-bottom: 11px;
+	font-weight: normal;
+	font: 1.76923076923077em alwynregular, Arial, sans-serif;
+	white-space: nowrap;
+	color: #fff;
+	line-height: 1.5em;
+
+}
+
+.box .image-content > h2:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.box .image-content > h2 > span {
+	padding: 7px 32px 6px 20px;
+	background: #ea6927;
+	margin-bottom: -9px;
+	float: left;
+	clear: both;
+}
+
+	.box .image-content h2 span ~ span {
+		padding-right: 15px;
+	}
+
+.box .image-content > p {
+	padding: 10px 34px 10px 20px;
+	font: 1.6em alwynregular, Arial, sans-serif;
+	background: #ea6927;
+	background: rgba(234,105,39,.8);
+	float: left;
+}
+
+.box .frontpage-image:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
 
 /*======================
 //	Footer

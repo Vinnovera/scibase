@@ -88,6 +88,10 @@
 	.g {
 		float: right;
 	}
+
+	.frontpage-image {
+		display: none;
+	}
 }
 
 /*******************************************************/
@@ -126,6 +130,10 @@
 	/*======================
 	//	Main framework
 	========================*/
+	.slider {
+		display: none;
+	}
+
 	.main {
 		padding-bottom: 0;
 	}
