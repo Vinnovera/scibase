@@ -40,6 +40,53 @@
 				<?php endwhile;?>
 			</ul>
 		</div>
+
+		
+		<div class="frontpage-image">
+			
+			<?php 
+			
+			$randomSlide = array_rand(get_field('flexslider'),1);
+			$slide = get_field('flexslider')[$randomSlide];
+			//var_dump($randomSlide);
+			//print_r($slide);
+			
+			$image = wp_get_attachment_image_src($slide['image'], 'startpageFlexslider');
+
+			//var_dump($slide['desc']);
+			
+			//print_r($slide);
+			?>
+
+			<img src="<?php echo $image[0]; ?>">
+			<div class="content">
+				<?php if($slide['desc']): ?>
+				<h2>
+					<span><?php echo $slide['desc']; ?></span>
+				</h2>
+				<?php endif; ?>
+
+				<?php if($slide['link_url_external']) :
+				
+				 ?>
+					<p><a href="<?php echo $slide['link_url_external']; ?>" class="read-more" target="_blank"><?php echo $slide['link_text']; ?></a></p>
+				<?php else : ?>
+					<?php if($slide['link_url']): ?>
+						<p><a href="<?php echo $slide['link_url'];?>" class="read-more"><?php echo $slide['link_text']; ?></a></p>
+					<?php endif; ?>
+				<?php endif; ?>
+
+			</div>
+			<?php
+				
+			//var_dump($slide);
+
+			?>
+
+			
+		</div>
+		
+
 	</div>
 </div>
 <?php endif; ?>
