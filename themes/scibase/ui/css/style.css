@@ -1052,6 +1052,7 @@ body .wrapper .main {
 				}
 					.frontpage-image .content h2,
 					.slides .content > h2 {
+						margin-top: 5px;
 						margin-bottom:11px;
 						float: left;
 						font-weight: normal;
