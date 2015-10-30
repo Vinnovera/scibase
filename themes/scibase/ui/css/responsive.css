@@ -316,14 +316,13 @@
 		.puff.medium.one-half.puff > .box {
 			height: auto;
 			margin-left: 0;
-			padding: 5% 0;
 		}
 
 			.puff.medium.one-half.puff:first-of-type > .box > div,
 			.puff.medium.one-half.puff > .box > div {
 				display: block;
 				margin-left: 0;
-				padding: 5%;
+				padding: 0 5%;
 				width: 90%;
 			}
 
@@ -336,8 +335,7 @@
 
 			.puff.medium.one-half.puff:first-of-type > .box > div {
 				float: left;
-				padding: 2%;
-				width: 56%;
+				width: 50%;
 			}
 
 			.main .medium.puff .box > .break-border {
