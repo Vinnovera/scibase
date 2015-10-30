@@ -210,6 +210,8 @@
 			this.level = 0;
 			// remove class mp-pushed from main wrapper
 			classie.remove( this.wrapper, 'mp-pushed' );
+			// remove level class
+			this.wrapper.className = this.wrapper.className.replace( /(\level-\w+)/ , '' );
 			this._toggleLevels();
 			this.open = false;
 		},
