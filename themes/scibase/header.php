@@ -19,8 +19,17 @@
 <?php if(get_field('header_scripts', 'option')) { ?>
 	<?php the_field('header_scripts', 'option'); ?>
 <?php }?>
+<?php 
+	$levelClass = '';
+	$level = get_current_page_depth()+1;
+
+	if ($level > 1) {
+		
+		$levelClass = 'level-'.$level;
+	}
+?>
 	<div class="wrapper">
-		<div class="mp-pusher" id="mp-pusher">	
+		<div class="mp-pusher <?php echo $levelClass; ?>" id="mp-pusher">	
 			<div class="mobile-menu">
 				<?php include(TEMPLATEPATH . '/components/mobileMenu.php'); ?>
 			</div>

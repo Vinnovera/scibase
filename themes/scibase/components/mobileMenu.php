@@ -1,18 +1,18 @@
 <?php
 
+$open_class = '';
+
+if( get_current_page_depth() > 0) {
+   $open_class = 'mp-level-open mp-level-overlay';
+}
+
 $mobileMenu = array(
 	'theme_location'  => 'mobileMenu',
 	'container'       => 'nav',
 	'container_class' => 'mp-menu',
 	'container_id'    => 'mp-menu',
 	'menu_class'      => 'menu',
-	'menu_id'         => '',
-	'echo'            => true,
-	'before'          => '',
-	'after'           => '',
-	'link_before'     => '',
-	'link_after'      => '',
-	'items_wrap'      => '<div class="mp-level"><h2>Main Menu</h2><ul id="%1$s" class="%2$s">%3$s</ul></div>',
+	'items_wrap'      => '<div class="mp-level '.$open_class.'"><h2>Main Menu</h2><ul id="%1$s" class="%2$s">%3$s</ul></div>',
 	'depth'           => 0,
 	'walker'          => new mobileMenu_walker_nav_menu
 );

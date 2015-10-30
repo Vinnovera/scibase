@@ -178,16 +178,16 @@
 			var levelFactor = ( this.level - 1 ) * this.options.levelSpacing,
 				translateVal = this.options.type === 'overlap' ? this.el.offsetWidth + levelFactor : this.el.offsetWidth;
 			
-			this._setTransform( 'translate3d(' + translateVal + 'px,0,0)' );
+			//this._setTransform( 'translate3d(' + translateVal + 'px,0,0)' );
 
 			if( subLevel ) {
 				// reset transform for sublevel
-				this._setTransform( '', subLevel );
+				//this._setTransform( '', subLevel );
 				// need to reset the translate value for the level menus that have the same level depth and are not open
 				for( var i = 0, len = this.levels.length; i < len; ++i ) {
 					var levelEl = this.levels[i];
 					if( levelEl != subLevel && !classie.has( levelEl, 'mp-level-open' ) ) {
-						this._setTransform( 'translate3d(-100%,0,0) translate3d(' + -1*levelFactor + 'px,0,0)', levelEl );
+						//this._setTransform( 'translate3d(-100%,0,0) translate3d(' + -1*levelFactor + 'px,0,0)', levelEl );
 					}
 				}
 			}
@@ -198,10 +198,15 @@
 			}
 			// add class mp-level-open to the opening level element
 			classie.add( subLevel || this.levels[0], 'mp-level-open' );
+			if( this.level !== 1 ) {
+				this._setLevelClass();
+			}
+			
+			
 		},
 		// close the menu
 		_resetMenu : function() {
-			this._setTransform('translate3d(0,0,0)');
+			//this._setTransform('translate3d(0,0,0)');
 			this.level = 0;
 			// remove class mp-pushed from main wrapper
 			classie.remove( this.wrapper, 'mp-pushed' );
@@ -211,7 +216,7 @@
 		// close sub menus
 		_closeMenu : function() {
 			var translateVal = this.options.type === 'overlap' ? this.el.offsetWidth + ( this.level - 1 ) * this.options.levelSpacing : this.el.offsetWidth;
-			this._setTransform( 'translate3d(' + translateVal + 'px,0,0)' );
+			//this._setTransform( 'translate3d(' + translateVal + 'px,0,0)' );
 			this._toggleLevels();
 		},
 		// translate the el
@@ -233,7 +238,17 @@
 					classie.remove( levelEl, 'mp-level-overlay' );
 				}
 			}
-		}
+			this._setLevelClass();
+		},
+
+		_setLevelClass : function(el){
+				el = el || this.wrapper;
+				
+				if (this.level>0) {
+				el.className = el.className.replace( /(\level-\w+)/ , '' );
+				classie.add( el, 'level-' + this.level );
+				}
+			}
 	}
 
 	// add to global namespace

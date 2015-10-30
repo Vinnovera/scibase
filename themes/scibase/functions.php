@@ -95,6 +95,56 @@ function custom_upload_sizes($sizes) {
 add_filter('image_size_names_choose', 'custom_upload_sizes');
 
 
+/**
+ * Check if post is in a menu
+ *
+ * @param $menu menu name, id, or slug
+ * @param $object_id int post object id of page
+ * @return bool true if object is in menu
+ */
+function object_is_in_menu( $menu = null, $object_id = null ) {
+
+    // get menu object
+    $menu_object = wp_get_nav_menu_items( esc_attr( $menu ) );
+
+    // stop if there isn't a menu
+    if( ! $menu_object )
+        return false;
+
+    // get the object_id field out of the menu object
+    $menu_items = wp_list_pluck( $menu_object, 'object_id' );
+
+    // use the current post if object_id is not specified
+    if( !$object_id ) {
+        global $post;
+        $object_id = get_queried_object_id();
+    }
+
+    // test if the specified page is in the menu or not. return true or false.
+    return in_array( (int) $object_id, $menu_items );
+
+}
+
+/**
+ * Get current page depth
+ *
+ * @return integer
+ */
+function get_current_page_depth(){
+	global $wp_query;
+	
+	$object = $wp_query->get_queried_object();
+	$parent_id  = $object->post_parent;
+	$depth = 0;
+	while($parent_id > 0){
+		$page = get_page($parent_id);
+		$parent_id = $page->post_parent;
+		$depth++;
+	}
+ 
+ 	return $depth;
+}
+
 // Activate Sidebars
 
 if ( function_exists('register_sidebar') )
@@ -197,7 +247,15 @@ class mobileMenu_walker_nav_menu extends Walker_Nav_Menu {
 	// rebuild output for sub-menus
 	function start_lvl( &$output, $depth ) {
 	    // build html
-	    $output .= "\n" . $indent . '<div class="mp-level"><h2>'.$this->curItem->title.'</h2><a class="mp-back" href="#">'.__('Back', 'scibase').'</a><ul>' . "\n";
+	    $open_class = '';
+
+	    //var_dump($this->curItem);
+
+	    if ($this->curItem->current || $this->curItem->current_item_ancestor) {
+	    	$open_class = 'mp-level-open';
+	    }
+
+	    $output .= "\n" . $indent . '<div class="mp-level '.$open_class.'"><h2>'.$this->curItem->title.'</h2><a class="mp-back" href="#">'.__('Back', 'scibase').'</a><ul>' . "\n";
 	}
 
 	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
