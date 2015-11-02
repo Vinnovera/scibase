@@ -15,9 +15,9 @@
 			var $this = $(this),
 			    ul    = $this.children('ul');
 
-			ul.css('display','block');
+			ul.toggleClass('show');
 			$this.on('mouseleave',function(){
-				ul.css('display','none');
+				ul.removeClass('show');
 			});
 		});
 

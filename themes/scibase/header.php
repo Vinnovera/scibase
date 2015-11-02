@@ -6,7 +6,6 @@
 <meta name="viewport" http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1, IE=edge,chrome=1">
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/modernizr.custom.15992.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>">
 <link rel="shortcut icon" type="image/png" href="<?php echo get_bloginfo( 'template_url' ); ?>/favicon.png" />
 <link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_url'); ?>/ui/css/print.css">
 <?php include_once(TEMPLATEPATH . "/components/GEOCheck.php"); ?>
@@ -22,10 +21,14 @@
 <?php 
 	$levelClass = '';
 	$level = get_current_page_depth()+1;
+	$children = get_pages('child_of='.$post->ID);
 
-	if ($level > 1) {
-		
-		$levelClass = 'level-'.$level;
+	if (get_option('menu_init') == 'current_item') {
+		if ($level > 1) {
+			$levelClass = 'level-'.$level;
+		}elseif (count( $children ) != 0) {
+			$levelClass = 'level-2';
+		}
 	}
 ?>
 	<div class="wrapper">

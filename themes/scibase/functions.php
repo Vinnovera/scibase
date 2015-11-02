@@ -2,6 +2,18 @@
 
 show_admin_bar( false );
 
+update_option( 'menu_init', 'current_item' );
+
+
+function scibase_scripts() {
+	wp_enqueue_style( 'style', get_stylesheet_directory_uri().'/style.css' );
+	if (is_page_template('study.php')) {
+		wp_enqueue_style( 'survey', get_stylesheet_directory_uri().'/ui/css/survey.css' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'scibase_scripts' );
+
 //Excerpt from Advanced Custom Field
 function custom_field_excerpt($title) {
 	global $post;
@@ -243,19 +255,23 @@ remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 //Walker for mobile menu
 
 class mobileMenu_walker_nav_menu extends Walker_Nav_Menu {
-  	private $curItem;
+	private $curItem;
 	// rebuild output for sub-menus
 	function start_lvl( &$output, $depth ) {
-	    // build html
-	    $open_class = '';
+		// build html
+		$open_class = '';
+		$current_class = '';
+		if (get_option('menu_init') == 'current_item') {
+			if ($this->curItem->current || $this->curItem->current_item_ancestor) {
+				$open_class = 'mp-level-open';
+			}
+		}
 
-	    //var_dump($this->curItem);
+		if ($this->curItem->current) {
+			$current_class = 'current-menu-item';
+		}
 
-	    if ($this->curItem->current || $this->curItem->current_item_ancestor) {
-	    	$open_class = 'mp-level-open';
-	    }
-
-	    $output .= "\n" . $indent . '<div class="mp-level '.$open_class.'"><h2>'.$this->curItem->title.'</h2><a class="mp-back" href="#">'.__('Back', 'scibase').'</a><ul>' . "\n";
+		$output .= "\n" . $indent . '<div class="mp-level '.$open_class.'"><a href="'.$this->curItem->url.'"><h2>'.$this->curItem->title.'</h2></a><a class="mp-back" href="#">'.__('Back', 'scibase').'</a><ul><li class="menu-item '.$current_class.'"><a href="'.$this->curItem->url.'">'.$this->curItem->title.'</a></li>' . "\n";
 	}
 
 	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
