@@ -103,6 +103,8 @@
 		_initEvents : function() {
 			var self = this;
 
+
+
 			// the menu should close if clicking somewhere on the body
 			var bodyClickFn = function( el ) {
 				self._resetMenu();
@@ -143,7 +145,6 @@
 					} );
 				}
 			});
-
 			// closing the sub levels :
 			// by clicking on the visible part of the level element
 			this.levels.forEach( function( el, i ) {
@@ -154,8 +155,10 @@
 						self.level = level;
 						self._closeMenu();
 					}
+
 				} );
 			});
+
 
 			// by clicking on a specific element
 			this.levelBack.forEach( function( el, i ) {

@@ -358,28 +358,30 @@ header .main-menu li:first-child > .mark > div{
 		}
 
 			.top-menu .search > a,
-			.top-menu .language span,
-			.top-menu .language a {
+			.language span,
+			.language a {
 				text-decoration: none;
 				color: #606060;
 			}
-
 			.top-menu .language {
 				position: relative;
+			}
+			.language {
 				border: 1px solid #e6e6e6;
 				border-radius: 5px;
 				padding: 6px 0;
 				margin-left: 9px;
 				cursor: pointer;
+				background-color: white;
 			}
 
-			.top-menu .language span,
-			.top-menu .language a {
+			.language span,
+			.language a {
 				padding-left: 34px;
 				display: block;
 			}
 
-			.top-menu .language > ul {
+			.language > ul {
 				padding: 0 0 3px;
 				margin: 0;
 				display: none;
@@ -396,26 +398,30 @@ header .main-menu li:first-child > .mark > div{
 				border-bottom-right-radius: 5px;
 			}
 
-				.top-menu .language > ul > li {
+			.language > ul.show{
+				display: block;
+			}
+
+				.language > ul > li {
 					padding: 0;
 					margin-left: 1px;
 					background: none;
 				}
 
-					.top-menu .language > ul > li > a {
+					.language > ul > li > a {
 						padding-top: 10px;
 						padding-bottom: 5px;
 					}
 
-						.top-menu .language > ul > li > a.de {
+						.language > ul > li > a.de {
 							background-position: 11px -137px;
 						}
 
-						.top-menu .language > ul > li > a.en {
+						.language > ul > li > a.en {
 							background-position: -274px -37px;
 						}
 
-.no-js .top-menu .language:hover > ul {
+.no-js .language:hover > ul {
 	display: block;
 }
 
@@ -1263,7 +1269,9 @@ footer .copyright {
 //	Image Sprite
  ====================*/
 .icon {
-	background: url('gfx/bg_gfx.png') left top no-repeat;
+	background-image: url('gfx/bg_gfx.png');
+	background-position: left top;
+	background-repeat: no-repeat;
 }
 
 	.icon.search {

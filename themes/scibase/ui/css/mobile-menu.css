@@ -1,12 +1,26 @@
 @media (max-width: 800px) {
+
+	.menu-icon:before {
+		content: '';
+		speak: none;
+		display: inline-block;
+		margin-right: 0.6em;
+		width: 20px;
+		height: 32px;
+		background: center center no-repeat;
+	}
+
+	.menu-icon.menu-icon-home:before {
+		background-image:url('data:image/svg+xml;utf8,<svg width="21px" height="17px" viewBox="0 0 21 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" ><g id="fa-home" fill="#FFFFFF"><path d="M0.493,9.004 L1.256,9.924 C1.324,10.014 1.413,10.058 1.526,10.058 C1.615,10.081 1.728,10.036 1.817,9.969 L10.504,2.741 L19.168,9.969 C19.235,10.036 19.325,10.058 19.415,10.058 L19.46,10.058 C19.572,10.058 19.662,10.014 19.729,9.924 L20.492,9.004 C20.559,8.914 20.604,8.824 20.582,8.712 C20.582,8.6 20.537,8.51 20.447,8.442 L17.709,6.153 L17.709,1.058 C17.709,0.923 17.664,0.833 17.597,0.766 C17.529,0.676 17.417,0.654 17.305,0.654 L14.903,0.654 C14.791,0.654 14.679,0.676 14.611,0.766 C14.544,0.833 14.499,0.923 14.499,1.058 L14.499,3.482 L11.447,0.946 C11.177,0.721 10.863,0.609 10.504,0.609 C10.122,0.609 9.808,0.721 9.539,0.946 L0.538,8.442 C0.448,8.51 0.403,8.6 0.403,8.712 C0.381,8.824 0.426,8.914 0.493,9.004 L0.493,9.004 Z M3.523,16.433 C3.68,16.59 3.86,16.68 4.084,16.68 L8.888,16.68 L8.888,11.877 L12.097,11.877 L12.097,16.68 L16.901,16.68 C17.125,16.68 17.305,16.59 17.462,16.433 C17.619,16.276 17.709,16.096 17.709,15.872 L17.709,9.856 C17.709,9.834 17.709,9.812 17.686,9.789 L10.504,3.863 L3.299,9.789 C3.299,9.789 3.276,9.812 3.276,9.834 L3.276,9.856 L3.276,15.872 C3.276,16.096 3.366,16.276 3.523,16.433 L3.523,16.433 Z" id="Fill-214" ></path></g></g></svg>'); 
+	}
+
 	.mp-pusher a {
 		text-decoration: none;
-		color: #fff;
 		outline: none;
 	}
 
-	.mp-pusher a:hover, a:focus {
-		color: #fff;
+	.mp-pusher a:, a:focus {
+		color: #000;
 		outline: none;
 	}
 
@@ -94,6 +108,10 @@
 		transform: translate3d(-100%, 0, 0);
 	}
 
+	.mobileMenu{
+		padding-bottom: 2em!important;
+	}
+
 	.mp-level {
 		position: absolute;
 		top: 0;
@@ -105,25 +123,35 @@
 		transform: translate3d(-100%, 0, 0);
 	}
 
-	.mp-menu .current-menu-item{
+	.mp-level.root {
+		padding-top: 25px;
+	}
+	.mp-level.root > ul > .menu-item:first-child a{
+		/*font-size: 2em;*/
+	}
+
+	.mp-menu .mp-level .current-menu-item{
+		background: white;
+	}
+
+	.mp-menu .mp-level .mobileMenu .current-menu-item > a{
 		border-left: 10px solid #EC6513;
+		color: black;
+	}
+
+	.mp-menu .mp-level li.menu-item-has-children::before{
+		content: '';
+		width: 10px;
+		height: 3.9em;
+		background: no-repeat center center;
+		background-image: url('data:image/svg+xml;utf8,<svg width="7px" height="12px" viewBox="0 0 7 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M0.129540781,11.2887538 L0.732145305,11.8704207 C0.797395476,11.9568069 0.904866347,12 0.991226868,12 C1.09869774,12 1.18505826,11.9568069 1.27045922,11.8704207 L6.87045922,6.268757 C6.95681974,6.20444729 7,6.09694449 7,6.01055831 C7,5.90305551 6.95681974,5.79555271 6.87045922,5.73028315 L1.27045922,0.128619421 C1.18505826,0.0431930891 1.09869774,0 0.991226868,0 C0.904866347,0 0.797395476,0.0431930891 0.732145305,0.128619421 L0.129540781,0.732362822 C0.0431802605,0.796672532 0,0.904175332 0,0.99056151 C0,1.09806431 0.0431802605,1.20652696 0.129540781,1.27083667 L4.84578478,6.01055831 L0.129540781,10.7291633 C0.0431802605,10.8145897 0,10.9009758 0,11.0084786 C0,11.1169413 0.0431802605,11.2023676 0.129540781,11.2887538" id="Fill-63" fill="#FFFFFF" transform="translate(3.500000, 6.000000) scale(-1, 1) translate(-3.500000, -6.000000) "></path></g></svg>');
+	}
+
+	.mp-menu .mobileMenu .menu-item-has-children > .mp-level ul{
 		background: white;
-		color: #EC6513;
 	}
 
-	.mp-menu .current-menu-item a{
-		color: #EC6513;
-	}
-
-	.mp-menu li.menu-item-has-children::before{
-		content: '<';
-	}
-
-	.mp-menu .menu-item-has-children > .mp-level ul{
-		background: white;
-	}
-
-	.mp-menu .menu-item-has-children > .mp-level ul li a{
+	.mp-menu .mobileMenu .menu-item-has-children > .mp-level ul li a{
 		color: black;
 	}
 
@@ -171,6 +199,8 @@
 		background: transparent;
 		opacity: 1;
 	}
+
+
 
 	.mp-pusher,
 	.mp-level {
@@ -224,7 +254,7 @@
 
 	/* overlap */
 	.mp-overlap .mp-level.mp-level-open {
-		box-shadow: 1px 0 2px rgba(0,0,0,0.2);
+		box-shadow: 2px 0 6px rgba(0,0,0,0.1);
 		-webkit-transform: translate3d(-40px, 0, 0)!important;
 		transform: translate3d(-40px, 0, 0)!important;
 	}
@@ -268,7 +298,7 @@
 	.mp-menu > .mp-level.mp-level-open,
 	.mp-menu.mp-overlap > .mp-level,
 	.mp-menu.mp-overlap > .mp-level.mp-level-open {
-		box-shadow: none;
+		/*box-shadow: none;*/
 		-webkit-transform: translate3d(0, 0, 0)!important;
 		transform: translate3d(0, 0, 0)!important;
 	}
@@ -284,6 +314,10 @@
 		transform: translate3d(-100%, 0, 0);
 	}
 
+	.mp-level.mp-level-overlay > ul > .current-menu-item{
+		background: #B3B3B3;
+	}
+
 	/* menu-content style */
 	.mp-menu ul {
 		margin: 0;
@@ -291,16 +325,23 @@
 		list-style: none;
 	}
 
-	.mp-menu h2 {
+	.mp-menu h2,
+	.mp-menu h3{
 		margin: 0;
-		padding: 1em;
-		color: rgba(0,0,0,0.4);
-		text-shadow: 0 0 1px rgba(0,0,0,0.1);
+		color: white;
 		font-weight: 300;
+	}
+	.mp-menu h2{
 		font-size: 2em;
 		line-height: 1.4em;
+		padding: 1em;
 	}
 
+	.mp-menu h3{
+		font-size: 1.5em;
+		line-height: 1.4em;
+		padding: .7em 1em;
+	}
 	.mp-menu.mp-overlap h2::before {
 		position: absolute;
 		top: 0;
@@ -309,6 +350,7 @@
 		font-size: 75%;
 		line-height: 1.8;
 		opacity: 0;
+		z-index: -1;
 		-webkit-transform: translateX(-100%);
 		transform: translateX(-100%);
 		-webkit-transition: opacity 0.3s, -webkit-transform 0.1s 0.3s;
@@ -330,35 +372,35 @@
 		transition: transform 0.3s, opacity 0.3s;
 	}
 
-	.mp-menu ul li > a {
+	.mp-menu .mp-level ul.mobileMenu li > a {
 		display: block;
-		padding: 0.7em 1em 0.7em 1.8em;
+		color: #fff;
+		padding: .6em 1em .6em 32px;
 		outline: none;
-		box-shadow: inset 0 -1px rgba(0,0,0,0.2);
+		box-shadow: inset 0 -1px rgba(255,255,255,0.2);
 		text-shadow: 0 0 1px rgba(255,255,255,0.1);
 		font-size: 1.4em;
+		line-height: 1.6em;
 		-webkit-transition: background 0.3s, box-shadow 0.3s;
 		transition: background 0.3s, box-shadow 0.3s;
+	}
+
+	.mp-menu .mobileMenu .menu-item-has-children ul li > a {
+		box-shadow: inset 0 -1px rgba(0,0,0,0.2);
 	}
 
 	.mp-menu ul li::before {
 		position: absolute;
 		left: 10px;
 		z-index: -1;
-		color: rgba(0,0,0,0.2);
+		color: rgba(0,0,0,0.5);
 		line-height: 3.5;
 	}
 
-	.mp-level > ul > li:first-child > a {
-		box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);
-	}
 
-	.mp-menu ul li a:hover,
-	.mp-level > ul > li:first-child > a:hover {
+	.mp-menu ul.mobileMenu li a:hover{
 		background: #fff;
 		color: #000;
-		//background: rgba(0,0,0,0.2);
-		box-shadow: inset 0 -1px rgba(0,0,0,0);
 	}
 
 	.mp-menu .mp-level.mp-level-overlay > ul > li > a,
@@ -366,15 +408,9 @@
 		box-shadow: inset 0 -1px rgba(0,0,0,0);
 	}
 
-	.mp-level > ul > li:first-child > a:hover,
-	.mp-level.mp-level-overlay > ul > li:first-child > a {
-		box-shadow: inset 0 -1px rgba(0,0,0,0), inset 0 1px rgba(0,0,0,0);
-	} /* seems like Chrome 34.0.1847.131 needs the second shadow otherwise the transition breaks */
-
 	.mp-menu .mp-level.mp-level-overlay > .mp-back,
 	.mp-menu .mp-level.mp-level-overlay > .mp-back::after {
 		background: transparent;
-		box-shadow: none;
 		color: transparent;
 	}
 
@@ -384,7 +420,7 @@
 		padding: 1em;
 		outline: none;
 		background: rgba(0,0,0,0.1);
-		box-shadow: inset 0 1px rgba(0,0,0,0.1);
+		box-shadow: inset 0 -1px rgba(0,0,0,0.2);
 		color: #fff;
 		text-transform: uppercase;
 		letter-spacing: 1px;
@@ -394,6 +430,20 @@
 		transition: background 0.3s;
 	}
 
+	.mp-back::after{
+		content: '';
+		display: inline-block;
+		background: center center no-repeat;
+		background-image: url('data:image/svg+xml;utf8,<svg width="8px" height="10px" viewBox="0 0 7 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" ><path d="M0.129540781,11.2887538 L0.732145305,11.8704207 C0.797395476,11.9568069 0.904866347,12 0.991226868,12 C1.09869774,12 1.18505826,11.9568069 1.27045922,11.8704207 L6.87045922,6.268757 C6.95681974,6.20444729 7,6.09694449 7,6.01055831 C7,5.90305551 6.95681974,5.79555271 6.87045922,5.73028315 L1.27045922,0.128619421 C1.18505826,0.0431930891 1.09869774,0 0.991226868,0 C0.904866347,0 0.797395476,0.0431930891 0.732145305,0.128619421 L0.129540781,0.732362822 C0.0431802605,0.796672532 0,0.904175332 0,0.99056151 C0,1.09806431 0.0431802605,1.20652696 0.129540781,1.27083667 L4.84578478,6.01055831 L0.129540781,10.7291633 C0.0431802605,10.8145897 0,10.9009758 0,11.0084786 C0,11.1169413 0.0431802605,11.2023676 0.129540781,11.2887538" id="Fill-63" fill="#FFFFFF"></path></g></svg>');
+		position: absolute;
+		width: 24px;
+		height: 18px;
+	}
+
+	.mp-back:hover{
+		background: rgba(0,0,0,0.3)!important;
+		color: white!important;
+	}
 	/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
 	/* We'll show the first level only */
 	.no-csstransforms3d .mp-pusher,
@@ -409,5 +459,34 @@
 	.no-csstransforms3d .mp-menu > .mp-level,
 	.no-js .mp-menu > .mp-level {
 		display: block;
+	}
+
+	.mp-menu .quick-links,
+	.mp-menu .utility{
+		font-size: 74%;
+		max-width: 80%;
+		margin-bottom: 1em;
+	}
+
+	.mp-menu .quick-links a,
+	.mp-menu .utility a{
+		box-shadow: none!important;
+		text-decoration: underline;
+	}
+
+	.mp-menu .utility .language{
+		font-size: 130%;
+		margin-left: 1em;
+		max-width: 150px;
+	}
+
+	.mp-menu .utility .language li a{
+		font-size: 1em;
+	}
+	.mp-menu .utility .language ul{
+		max-width: 150px;
+		left: 1em;
+		margin-top: 15px;
+		border-radius: 5px;
 	}
 }
