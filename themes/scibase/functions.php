@@ -10,9 +10,22 @@ function scibase_scripts() {
 	if (is_page_template('study.php')) {
 		wp_enqueue_style( 'survey', get_stylesheet_directory_uri().'/ui/css/survey.css' );
 	}
+	if (is_user_logged_in()) {
+		wp_enqueue_style( 'responsive', get_stylesheet_directory_uri().'/ui/css/responsive.css' );
+		wp_enqueue_style( 'mobile-menu', get_stylesheet_directory_uri().'/ui/css/mobile-menu.css' );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'scibase_scripts' );
+
+add_filter( 'body_class', 'sp_body_class' );
+function sp_body_class( $class ) {
+	if (!is_user_logged_in()) {
+		$class[] = 'non-responsive';
+		
+	}
+	return $class;
+}
 
 //Excerpt from Advanced Custom Field
 function custom_field_excerpt($title) {

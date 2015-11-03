@@ -1,3 +1,6 @@
+	.frontpage-image {
+		display: block;
+	}
 /*******************************************************/
 /************************* 960px ***********************/
 /*******************************************************/
@@ -77,6 +80,8 @@
 /*********************** 800px < ***********************/
 /*******************************************************/
 @media (min-width: 800px) {
+
+
 	.mobile-menu {
 		display: none;
 	}
@@ -88,12 +93,22 @@
 	.frontpage-image {
 		display: none;
 	}
+
+	.post,
+	.side-menu{
+		float: right;
+	}
 }
 
 /*******************************************************/
 /************************* 800px ***********************/
 /*******************************************************/
 @media (max-width: 800px) {
+
+	.wrapper, .mp-pusher, .scroller{
+		display: block;
+	}
+
 	header > .body {
 		padding: 0;
 	}
@@ -228,7 +243,6 @@
 	}
 
 	.post .box {
-		margin-top: 2em;
 		text-align: center;
 	}
 
@@ -245,22 +259,24 @@
 	/*======================
 	//	Footer
 	========================*/
-	footer .body {
+	.body-footer{
 		background: #4A4A4A;
+		height: auto;
+		margin:0;
 	}
-		footer .main-menu {
+		.body-footer .main-menu {
 			padding-left: 20px;
 		}
 
-			footer .body nav ul li, 
-			footer .body a,
-			footer .main-menu ul li.twitter a,
-			footer .main-menu ul li.linkedin a {
+			.body-footer .body nav ul li, 
+			.body-footer .body a,
+			.body-footer .main-menu ul li.twitter a,
+			.body-footer .main-menu ul li.linkedin a {
 				color: #FFFFFF;
 				text-shadow: none;
 			}
 
-			footer .body .copyright p {
+			.body-footer .body .copyright p {
 				color: #FFFFFF;
 				text-align: center;
 				text-shadow: none;

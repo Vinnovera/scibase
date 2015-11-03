@@ -1,5 +1,10 @@
+/*******************************************************/
+/************************* Base ***********************/
+/*******************************************************/
 @media (max-width: 800px) {
-
+	.mobile-menu{
+	display: block;
+	}
 	.menu-icon:before {
 		content: '';
 		speak: none;
@@ -38,11 +43,7 @@
 
 	.scroller {
 		overflow-y: scroll;
-	}
 
-	.scroller,
-	.scroller-inner {
-		position: relative;
 	}
 
 	.wrapper {
@@ -101,8 +102,7 @@
 		top: 0;
 		left: 0;
 		z-index: 1;
-		width: 80%;
-		max-width: 300px;
+		width: 300px;
 		height: 100%;
 		-webkit-transform: translate3d(-100%, 0, 0);
 		transform: translate3d(-100%, 0, 0);
@@ -301,6 +301,7 @@
 		/*box-shadow: none;*/
 		-webkit-transform: translate3d(0, 0, 0)!important;
 		transform: translate3d(0, 0, 0)!important;
+		/*overflow-y: scroll;*/
 	}
 
 	/* cover */

@@ -54,17 +54,18 @@ body {
 	position: relative;
 }
 
-.wrapper {
-	min-height: 100%;
-	overflow: hidden;
-	z-index: 0;
-	position: relative;
+body.non-responsive{
+	min-width: 960px;
 }
 
 .body {
-	width: 940px;
+	max-width: 940px;
 	margin: 0 auto;
 	padding: 0 10px;
+}
+
+.main{
+	margin-top: 15px;
 }
 
 a {
@@ -146,6 +147,11 @@ ul, ol {
 	}
 
 /* Menus */
+.mobile-menu,
+.frontpage-image{
+	display: none;
+}
+
 .top-menu ul,
 .main-menu ul {
 	list-style-type: none;
@@ -444,12 +450,12 @@ header .main-menu li:first-child > .mark > div{
 //  Main content area
 =======================*/
 
-body .wrapper .main {
+/*body .wrapper .main {
 	position: relative;
 	z-index: 0;
 	overflow: hidden;
 	padding: 15px 0 172px; 
-}
+}*/
 
 .box {
 	padding: 10px;
@@ -1211,54 +1217,75 @@ body .wrapper .main {
 //	Footer
 ========================*/
 
-body > footer {
+/*Sticky footer */
+.wrapper, .mp-pusher, .scroller{
+	display: inline;
+}
+
+html, body {
+  height: 100%;
+}
+.scroller-inner {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -153px; 
+}
+.scroller-inner:after {
+  content: "";
+  display: block;
+}
+.body-footer, .scroller-inner:after {
+  height: 152px; 
+}
+
+.body-footer {
 	background: #f2f2f2;
 	border-top: 1px solid #ececec;
-	margin-top: -152px;
-	height: 151px;
 	z-index: 1;
-	position: relative;
+	width: 100%;
 }
 
-footer .body {
+.body-footer .body {
 	overflow: hidden;
 	padding-bottom: 50px;
+	margin: 0 auto;
+	max-width: 940px;
 }
 
-	footer .main-menu {
+	.body-footer .main-menu {
 		padding: 16px 0 18px;
 		border-bottom: 1px dashed #dedede;
 		overflow: hidden;
 	}
 
-		footer .main-menu ul > li{
+		.body-footer .main-menu ul > li{
 			padding-right: 21px;
 		}
 
-			footer .main-menu a {
+			.body-footer .main-menu a {
 				font-size: 1.07692307692308em;
 				color: #3d3d3d;
 				text-shadow: 0 1px 0 #fff;
 			}
 
-			footer .main-menu ul > li:hover > a {
+			.body-footer .main-menu ul > li:hover > a {
 				color: #2e2e2e;
 			}
 
-footer .main-menu ul li.twitter,
-footer .main-menu ul li.facebook,
-footer .main-menu ul li.instagram,
-footer .main-menu ul li.linkedin{
+.body-footer .main-menu ul li.twitter,
+.body-footer .main-menu ul li.facebook,
+.body-footer .main-menu ul li.instagram,
+.body-footer .main-menu ul li.linkedin{
 
 	float: right;
 
 }
 
-footer .copyright {
+.body-footer .copyright {
 
 }
 
-	footer .copyright > p {
+	.body-footer .copyright > p {
 		font: 1.07692307692308em/27px alwynregular, Arial, sans-serif;
 		color: #8c8c8c;
 		text-shadow: 0 1px 0 #fff;

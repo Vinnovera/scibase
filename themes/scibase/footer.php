@@ -1,6 +1,6 @@
 
-</div>
-<footer>
+</div> <!--/scroller-inner-->
+<footer class="body-footer">
 	<div class="body">
 		<nav class="main-menu">
 			<ul>
@@ -13,9 +13,9 @@
 	</div>
 </footer>
 
-		</div> <!--/slider-inner -->
-	</div> <!--/slider -->
-</div><!-- /pusher -->
+		</div> <!--/scroller-->
+	</div> <!--/mp-pusher -->
+</div><!-- /wrapper -->
 <?php wp_footer(); ?>
 
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/jquery.js"></script>

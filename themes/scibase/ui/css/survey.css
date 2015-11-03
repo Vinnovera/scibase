@@ -1,3 +1,8 @@
+header .top-menu,
+header .main-menu{
+	display: none;
+}
+
 .survey-form {
 	max-width: 100%;
 }
