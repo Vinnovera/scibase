@@ -47,15 +47,11 @@
 		<?php 
 		
 		$randomSlide = array_rand(get_field('flexslider'),1);
-		$slide = get_field('flexslider')[$randomSlide];
-		//var_dump($randomSlide);
-		//print_r($slide);
-		
+		$slide = get_field('flexslider');
+		$slide = $slide[$randomSlide];
+
 		$image = wp_get_attachment_image_src($slide['image'], 'startpageFlexslider');
 
-		//var_dump($slide['desc']);
-		
-		//print_r($slide);
 		?>
 
 		<img src="<?php echo $image[0]; ?>">

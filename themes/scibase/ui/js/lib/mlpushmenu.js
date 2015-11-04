@@ -83,7 +83,12 @@
 			// level depth
 			this.level = 0;
 			// the moving wrapper
+			this.wrap = document.getElementById( 'wrapper' );
 			this.wrapper = document.getElementById( 'mp-pusher' );
+
+			this.container = document.getElementById( 'mp-menu' );
+			// the menu
+
 			// the mp-level elements
 			this.levels = Array.prototype.slice.call( this.el.querySelectorAll( 'div.mp-level' ) );
 			// save the depth of each of these mp-level elements
@@ -180,6 +185,8 @@
 			// move the main wrapper
 			var levelFactor = ( this.level - 1 ) * this.options.levelSpacing,
 				translateVal = this.options.type === 'overlap' ? this.el.offsetWidth + levelFactor : this.el.offsetWidth;
+
+			this.container.scrollIntoView();
 			
 			//this._setTransform( 'translate3d(' + translateVal + 'px,0,0)' );
 
@@ -193,9 +200,11 @@
 						//this._setTransform( 'translate3d(-100%,0,0) translate3d(' + -1*levelFactor + 'px,0,0)', levelEl );
 					}
 				}
+
 			}
 			// add class mp-pushed to main wrapper if opening the first time
 			if( this.level === 1 ) {
+				classie.add( this.wrap, 'mp-pushed' );
 				classie.add( this.wrapper, 'mp-pushed' );
 				this.open = true;
 			}
@@ -212,6 +221,7 @@
 			//this._setTransform('translate3d(0,0,0)');
 			this.level = 0;
 			// remove class mp-pushed from main wrapper
+			classie.remove( this.wrap, 'mp-pushed' );
 			classie.remove( this.wrapper, 'mp-pushed' );
 			// remove level class
 			this.wrapper.className = this.wrapper.className.replace( /(\level-\w+)/ , '' );

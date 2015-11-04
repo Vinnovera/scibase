@@ -36,12 +36,6 @@
 		display: table;
 	}
 
-		.puff.medium.one-half.puff:first-of-type > .box > div {
-			float: right;
-			padding: 2%;
-			width: 46%;
-		}
-
 		.puff.medium.one-half.puff > .box > h2 {
 			float: none;
 			display: block;
@@ -94,8 +88,9 @@
 		display: none;
 	}
 
-	.post,
-	.side-menu{
+	.g.post,
+	.g.post-list,
+	.g.side-menu{
 		float: right;
 	}
 }
@@ -174,6 +169,11 @@
 				width: 100%;
 			}
 
+				.puff.medium.one-half.puff:first-of-type > .box > figure img  {
+					float:none;
+					margin: 0 auto;
+				}
+
 	.puff.small.one-third {
 		margin-left: 0;
 		width: 100%;
@@ -244,6 +244,7 @@
 
 	.post .box {
 		text-align: center;
+		padding: 18px 30px 18px;
 	}
 
 		.post .box > h1:nth-of-type(1) {
@@ -259,6 +260,12 @@
 	/*======================
 	//	Footer
 	========================*/
+	.scroller-inner{
+		margin-bottom: 0;
+	}
+	.scroller-inner::after{
+		display: none;
+	}
 	.body-footer{
 		background: #4A4A4A;
 		height: auto;
@@ -396,7 +403,7 @@
 	.puff.medium.one-half.puff:first-of-type > .box > div,
 	.puff.medium.one-half.puff > .box > div {
 		display: block;
-		padding: 5%;
+		padding: 1% 5% 5%;
 		width: 90%;
 	}
 
@@ -405,6 +412,8 @@
 		margin-right: 0;
 		width: 100%;
 	}
+
+
 
 	.main .puff h1, h3 {
 		width: 80%;

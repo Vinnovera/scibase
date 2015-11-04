@@ -4,6 +4,21 @@ show_admin_bar( false );
 
 update_option( 'menu_init', 'current_item' );
 
+function cm_redirect_users_by_role() {
+ 
+    if ( ! defined( 'DOING_AJAX' ) ) {
+ 
+        $current_user   = wp_get_current_user();
+        $role_name      = $current_user->roles[0];
+ 
+        if ( 'subscriber' === $role_name ) {
+            wp_redirect( get_bloginfo('url') );
+        } // if $role_name
+ 
+    } // if DOING_AJAX
+ 
+} // cm_redirect_users_by_role
+add_action( 'admin_init', 'cm_redirect_users_by_role' );
 
 function scibase_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri().'/style.css' );
@@ -22,8 +37,14 @@ add_filter( 'body_class', 'sp_body_class' );
 function sp_body_class( $class ) {
 	if (!is_user_logged_in()) {
 		$class[] = 'non-responsive';
-		
 	}
+
+	$current_user   = wp_get_current_user();
+    $role_name      = $current_user->roles[0];
+ 
+    if ( $role_name ) {
+            $class[] = 'subscriber';
+    } // if $role_name
 	return $class;
 }
 

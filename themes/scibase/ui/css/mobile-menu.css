@@ -41,19 +41,25 @@
 		height: 100%;
 	}
 
-	.scroller {
-		overflow-y: scroll;
-
+	.mp-pushed.wrapper {
+		width: 100%;
+		overflow-x: hidden;
 	}
 
-	.wrapper {
+	.mp-pushed .scroller{
+		height: 100%;
+		min-height: 720px;
 		overflow: hidden;
+		top:0;
+		width: 100%;
+		transform: none;
 	}
 
 	.menu-bar {
 		background: #EC6513;
 		height: 50px;
 		width: 100%;
+		z-index: 999;
 	}
 
 		.menu-button {
@@ -102,23 +108,26 @@
 		top: 0;
 		left: 0;
 		z-index: 1;
-		width: 300px;
+		width: 260px;
 		height: 100%;
+		background: #EC6513;
 		-webkit-transform: translate3d(-100%, 0, 0);
 		transform: translate3d(-100%, 0, 0);
 	}
 
 	.mobileMenu{
-		padding-bottom: 2em!important;
+		padding-bottom: 1em!important;
 	}
 
 	.mp-level {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: 100%;
+		width: 260px;
+		min-height: 100%;
 		background: #EC6513;
+		padding-bottom: 4em;
+		z-index: 1;
 		-webkit-transform: translate3d(-100%, 0, 0);
 		transform: translate3d(-100%, 0, 0);
 	}
@@ -175,14 +184,11 @@
 		transition: opacity 0.3s, width 0.1s 0.3s, height 0.1s 0.3s;
 	}
 
-	.mp-level::after {
-		z-index: -1;
-	}
-
 	.mp-pusher.mp-pushed::after,
 	.mp-level.mp-level-overlay::after {
 		width: 100%;
 		height: 100%;
+		min-height: 829px;
 		opacity: 1;
 		-webkit-transition: opacity 0.3s;
 		transition: opacity 0.3s;
@@ -193,13 +199,16 @@
 		cursor: pointer;
 	}
 
+	.mp-level.mp-level-overlay>ul>li {
+		
+	}
+
 	.mp-level.mp-level-overlay.mp-level::before {
 		width: 100%;
 		height: 100%;
 		background: transparent;
 		opacity: 1;
 	}
-
 
 
 	.mp-pusher,
@@ -209,47 +218,47 @@
 	}
 
 	.mp-pusher.mp-pushed{
-		transform: translate3d(300px, 0px, 0px);
+		transform: translate3d(260px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-1{
-		transform: translate3d(300px, 0px, 0px);
+		transform: translate3d(260px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-2{
-		transform: translate3d(340px, 0px, 0px);
+		transform: translate3d(300px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-3{
-		transform: translate3d(380px, 0px, 0px);
+		transform: translate3d(340px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-4{
-		transform: translate3d(420px, 0px, 0px);
+		transform: translate3d(380px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-5{
-		transform: translate3d(460px, 0px, 0px);
+		transform: translate3d(420px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-6{
-		transform: translate3d(500px, 0px, 0px);
+		transform: translate3d(460px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-7{
-		transform: translate3d(540px, 0px, 0px);
+		transform: translate3d(500px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-8{
-		transform: translate3d(580px, 0px, 0px);
+		transform: translate3d(540px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-9{
-		transform: translate3d(620px, 0px, 0px);
+		transform: translate3d(580px, 0px, 0px);
 	}
 
 	.mp-pusher.mp-pushed.level-10{
-		transform: translate3d(660px, 0px, 0px);
+		transform: translate3d(620px, 0px, 0px);
 	}
 
 	/* overlap */
@@ -301,7 +310,6 @@
 		/*box-shadow: none;*/
 		-webkit-transform: translate3d(0, 0, 0)!important;
 		transform: translate3d(0, 0, 0)!important;
-		/*overflow-y: scroll;*/
 	}
 
 	/* cover */
@@ -313,10 +321,6 @@
 	.mp-cover .mp-level.mp-level-open > ul > li > .mp-level:not(.mp-level-open) {
 		-webkit-transform: translate3d(-100%, 0, 0);
 		transform: translate3d(-100%, 0, 0);
-	}
-
-	.mp-level.mp-level-overlay > ul > .current-menu-item{
-		background: #B3B3B3;
 	}
 
 	/* menu-content style */
@@ -376,7 +380,7 @@
 	.mp-menu .mp-level ul.mobileMenu li > a {
 		display: block;
 		color: #fff;
-		padding: .6em 1em .6em 32px;
+		padding: .6em 40px .6em 32px;
 		outline: none;
 		box-shadow: inset 0 -1px rgba(255,255,255,0.2);
 		text-shadow: 0 0 1px rgba(255,255,255,0.1);
@@ -466,7 +470,7 @@
 	.mp-menu .utility{
 		font-size: 74%;
 		max-width: 80%;
-		margin-bottom: 1em;
+		margin-bottom: .2em;
 	}
 
 	.mp-menu .quick-links a,
@@ -487,7 +491,6 @@
 	.mp-menu .utility .language ul{
 		max-width: 150px;
 		left: 1em;
-		margin-top: 15px;
-		border-radius: 5px;
+		margin-top: 0;
 	}
 }

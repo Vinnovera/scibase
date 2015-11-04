@@ -37,7 +37,7 @@
 		}
 	}
 ?>
-	<div class="wrapper">
+	<div id="wrapper" class="wrapper">
 		<div class="mp-pusher <?php echo $levelClass; ?>" id="mp-pusher">	
 			<div class="mobile-menu">
 				<?php include(TEMPLATEPATH . '/components/mobileMenu.php'); ?>

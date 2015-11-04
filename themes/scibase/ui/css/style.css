@@ -1111,11 +1111,20 @@ header .main-menu li:first-child > .mark > div{
 							color: #fff;
 						}
 
+							.frontpage-image .content p a.read-more{
+								border-bottom: 2px solid white;
+								margin-bottom: 1px;
+								padding-bottom: 2px;
+								display: block;
+
+							}
+
 						.frontpage-image .content:after {
 							clear: both;
 							content: "";
 							display: block;
 						}
+
 						
 	.slider > .flex-direction-nav {
 		list-style-type: none;
