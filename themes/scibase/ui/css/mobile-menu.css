@@ -215,10 +215,10 @@
 
 	.mp-pusher,
 	.mp-level {
-	  -webkit-transition: -webkit-transform 0.5s;
-	     -moz-transition: -moz-transform 0.5s;
-	       -o-transition: -o-transform 0.5s;
-	          transition: transform 0.5s;
+	  -webkit-transition: -webkit-transform 0.3s ease-out;
+	     -moz-transition: -moz-transform 0.3s ease-out;
+	       -o-transition: -o-transform 0.3s ease-out;
+	          transition: transform 0.3s ease-out;
 	}
 
 	.mp-pusher.mp-pushed{
