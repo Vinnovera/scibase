@@ -63,3 +63,7 @@ msgstr ""
 #. GEO Restrictions
 msgid "Continue as a private person"
 msgstr ""
+
+#. Back
+msgid "Back"
+msgstr "Retour"
