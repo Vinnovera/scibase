@@ -6,7 +6,12 @@
 			<ul>
 				<?php include(TEMPLATEPATH . '/components/footerMenu.php'); ?>
 			</ul>
+
 		</nav>
+		<ul class="quick-links">
+				<h3>Quick Links:</h3>
+				<?php include(TEMPLATEPATH . '/components/topMenu.php'); ?>
+		</ul>
 		<div class="copyright">
 			<p>&copy; <?php _e('copyright', 'scibase'); ?> <?php switch_to_blog('1'); ?><?php bloginfo("name"); ?><?php restore_current_blog(); ?>  <?php $the_year = date("Y"); echo $the_year; ?></p>
 		</div>

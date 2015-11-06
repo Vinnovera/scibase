@@ -100,6 +100,10 @@
 /*******************************************************/
 @media (max-width: 800px) {
 
+	body{
+		overflow-x: hidden; 
+	}
+
 	.wrapper, .mp-pusher, .scroller{
 		display: block;
 	}
@@ -132,6 +136,8 @@
 	header .logo {
 		float: none;
 	}
+
+
 		
 	/*======================
 	//	Main framework
@@ -269,55 +275,133 @@
 	.body-footer{
 		background: #4A4A4A;
 		height: auto;
-		margin:0;
+		margin:10px 0 0;
+		font-family: alwynregular, Arial, sans-serif;
+		position: relative;
+	}
+	.body-footer::before{
+		background: #f2f2f2;
+		height: 50px;
+		width: 100%;
+		content: '';
+		display: block;
+		box-shadow: 0 -1px 0px 0 #d9d9d9;
 	}
 		.body-footer .main-menu {
 			padding-left: 20px;
 		}
 
 			.body-footer .body nav ul li, 
-			.body-footer .body a,
-			.body-footer .main-menu ul li.twitter a,
-			.body-footer .main-menu ul li.linkedin a {
+			.body-footer .body a{
 				color: #FFFFFF;
 				text-shadow: none;
+				line-height: 0.8;
+				float: none;
+				margin-top: 15px;
+			}
+			.body-footer .main-menu ul li.twitter,
+			.body-footer .main-menu ul li.linkedin,
+			.body-footer .main-menu ul li.facebook,
+			.body-footer .main-menu ul li.instagram{
+				position: absolute;
+				top: 0px;
+				left: 4%;
+				width: 29%;
+				height: 20px;
+				color: black;
+				padding: 0;
+				font-size: 90%;
+				float: none;
 			}
 
+			.body-footer .main-menu ul li.twitter{
+				left: 34%;
+			}
+			.body-footer .main-menu ul li.facebook{
+				left: 70%;
+			}
+			.body-footer .main-menu ul li.instagram{
+				left: 78%;
+			}
+			.body-footer .main-menu ul li.twitter a,
+			.body-footer .main-menu ul li.linkedin a,
+			.body-footer .main-menu ul li.facebook a,
+			.body-footer .main-menu ul li.instagram a{
+				color: black;
+				border:none;
+			}
+
+			.body-footer .main-menu ul li.twitter a:hover,
+			.body-footer .main-menu ul li.linkedin a:hover,
+			.body-footer .main-menu ul li.facebook a:hover,
+			.body-footer .main-menu ul li.instagram a:hover{
+				color: inherit;
+				border: none;
+			}
+
+			.body-footer .body{
+				padding-bottom: 25px;
+			}
+
+			.body-footer .body a{
+				border-bottom: 2px solid transparent;
+			}
+			.body-footer > .body > nav > ul {
+				margin-left: 15px;
+			}
+
+			.body-footer > .body > nav > ul >li {
+				list-style-type: square;
+			}
+
+			.body-footer .main-menu ul a:hover{
+				border-color: white;
+				color: white;
+			}
+
+			.body-footer .body .copyright {
+				border: none;
+			}
 			.body-footer .body .copyright p {
-				color: #FFFFFF;
+				color: #BDBDBD;
 				text-align: center;
 				text-shadow: none;
 			}
-}
 
-/*******************************************************/
-/************************* 750px ***********************/
-/*******************************************************/
-@media (max-width: 750px) {
-	/*======================
-	//	Footer
-	========================*/
-	footer .body nav ul li, 
-	footer .body a,
-	footer .main-menu ul li.twitter,
-	footer .main-menu ul li.linkedin  {
-		float: none;
-		margin-top: 15px;
+	.body-footer .quick-links{
+		display: block;
+		font-size: 90%;
+		max-width: 100%;
+		margin-bottom: .2em;
+		line-height: 1.8;
+		overflow: hidden;
+		margin: 10px 0 15px;
+		padding: 5px 0;
+		border-top: 1px solid #979797;
+		border-bottom: 1px solid #979797;
+		text-align: center;
 	}
 
-	footer > .body > nav > ul {
-		margin-left: 15px;
-	}
-
-	footer > .body > nav > ul li {
-		list-style-type: square;
-	}
-
-	footer .main-menu ul li.twitter,
-	footer .main-menu ul li.linkedin {
+	.body-footer .quick-links h3{
+		color: white;
+		font-weight: normal;
 		display: none;
 	}
+
+	.body-footer .quick-links li{
+		list-style-type: none;
+		margin: 0 4px;
+		display: inline-block;
+	}
+	.body-footer .quick-links a{
+		box-shadow: none!important;
+		color: #BDBDBD;
+	}
+	.body-footer .quick-links a:hover{
+		border-color: #BDBDBD;
+	}
 }
+
 
 /*******************************************************/
 /************************* 650px ***********************/
@@ -372,6 +456,13 @@
 		left: auto;
 		position: relative;
 		right: auto;
+	}
+
+	.puff .fill > h2,
+	.puff .overlay > div,
+	.puff .fill > div,
+	.main .puff .overlay > h2{
+		z-index: 0;
 	}
 
 	.puff.small .fill.box > h2, .puff.small .fill.box > div {

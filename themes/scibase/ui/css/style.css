@@ -506,7 +506,7 @@ header .main-menu li:first-child > .mark > div{
 
 	.main .contact-us h2,
 	.main .related h2,
-	.main .puff h2 {
+	.main .puff .box > h2 {
 		text-transform: uppercase;
 		font: 1.23076923076923em alwynregular, Arial, sans-serif;
 		margin-top: 0;
@@ -523,14 +523,14 @@ header .main-menu li:first-child > .mark > div{
 
 		.main .contact-us h2,
 		.main .related h2,
-		.main .puff h2 {
+		.main .puff .box > h2 {
 			color: #fff;
 			padding: 8px 10px 7px 10px;
 			float: left;
 			display: block;
 		}
 
-		.main .puff h2 > a {
+		.main .puff .box > h2 > a {
 			color: #fff;
 			text-decoration: none;
 		}
@@ -562,12 +562,12 @@ header .main-menu li:first-child > .mark > div{
 	margin-bottom: 10px;
 }
 	
-	.main .medium.puff h2 {
+	.main .medium.puff .box > h2 {
 		background: #615f9b;
 	}
 
 	.main .related h2,
-	.main .small.puff h2{
+	.main .small.puff .box > h2{
 		background: #01587a;
 	}
 
@@ -1244,7 +1244,7 @@ html, body {
   display: block;
 }
 .body-footer, .scroller-inner:after {
-  height: 152px; 
+  height: 172px; 
 }
 
 .body-footer {
@@ -1263,7 +1263,6 @@ html, body {
 
 	.body-footer .main-menu {
 		padding: 16px 0 18px;
-		border-bottom: 1px dashed #dedede;
 		overflow: hidden;
 	}
 
@@ -1277,7 +1276,7 @@ html, body {
 				text-shadow: 0 1px 0 #fff;
 			}
 
-			.body-footer .main-menu ul > li:hover > a {
+			.body-footer .main-menu ul a:hover {
 				color: #2e2e2e;
 			}
 
@@ -1291,7 +1290,12 @@ html, body {
 }
 
 .body-footer .copyright {
+	border-top: 1px dashed #dedede;
+	margin-top: 10px;
+}
 
+.body-footer .quick-links {
+	display: none;
 }
 
 	.body-footer .copyright > p {
