@@ -9,7 +9,7 @@
 
 		</nav>
 		<ul class="quick-links">
-				<h3>Quick Links:</h3>
+				<h3><?php _e('Quick Links','scibase'); ?></h3>
 				<?php include(TEMPLATEPATH . '/components/topMenu.php'); ?>
 		</ul>
 		<div class="copyright">

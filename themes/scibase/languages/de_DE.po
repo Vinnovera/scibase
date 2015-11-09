@@ -67,3 +67,15 @@ msgstr ""
 #. Back
 msgid "Back"
 msgstr "Retour"
+
+#. Menu
+msgid "Menu"
+msgstr "Menü"
+
+#. Quick Links
+msgid "Quick Links"
+msgstr "Abkürzungen"
+
+#. Set Language
+msgid "Set Language"
+msgstr "Sprache"

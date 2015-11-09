@@ -28,11 +28,11 @@ $mobileMenu = array(
 	<div class="mp-level root <?php echo $open_class; ?>">
 		<?php wp_nav_menu( $mobileMenu ); ?>
 		<ul class="quick-links mobileMenu">
-			<h3>Quick Links:</h3>
+			<h3><?php _e('Quick Links','scibase'); ?>:</h3>
 			<?php include(TEMPLATEPATH . '/components/topMenu.php'); ?>
 		</ul>
 		<ul class="utility">
-			<h3>Set Language:</h3>
+			<h3><?php _e('Set Language','scibase'); ?>:</h3>
 			<?php include(TEMPLATEPATH . '/components/languageMenu.php'); ?>
 		</ul>
 	</div>
@@ -41,7 +41,7 @@ $mobileMenu = array(
 <div class="menu-bar">
 	<div class="menu-button">				
 		<a href="#" id="trigger" class="menu-trigger"></a>
-		<p>MENU</p>
+		<p><?php _e('Menu','scibase'); ?></p>
 	</div>
 </div>	
 	
