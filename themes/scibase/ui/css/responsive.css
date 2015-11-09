@@ -230,13 +230,13 @@
 	.main .feature .slider {
 		float: none;
 		padding: 35px 5% 0 5%;
-		width: 90%;
+		width: 100%;
 	}
 
 	.main .feature .post {
 		float: none;
 		padding: 35px;
-		width: 80%;
+		width: 100%;
 	}
 
 		.contact .readmore {
@@ -509,7 +509,7 @@
 
 
 
-	.main .puff h1, h3 {
+	.main .puff h1, .main .puff h3 {
 		width: 80%;
 	}
 
