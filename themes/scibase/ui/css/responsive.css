@@ -249,8 +249,11 @@
 	}
 
 	.post .box {
-		text-align: center;
 		padding: 18px 30px 18px;
+	}
+
+	.post .box h1, .post .box h2, .post .box h3{
+		text-align: center;
 	}
 
 		.post .box > h1:nth-of-type(1) {

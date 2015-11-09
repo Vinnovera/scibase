@@ -71,6 +71,7 @@
 		padding: 0;
 		margin: 0;
 		vertical-align: top;
+		text-transform: uppercase;
 	}
 
 	.menu-trigger {
@@ -511,6 +512,14 @@
 
 	.mp-menu .utility .language li a{
 		font-size: 1em;
+		line-height: 1;
+	}
+
+	.language > ul > li > a.en{
+		background-position: -274px -45px;
+	}
+	.language > ul > li > a.de{
+		background-position: 11px -145px;
 	}
 	.mp-menu .utility .language ul{
 		max-width: 150px;

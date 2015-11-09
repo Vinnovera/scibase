@@ -409,7 +409,7 @@ header .main-menu li:first-child > .mark > div{
 			}
 
 				.language > ul > li {
-					padding: 0;
+					padding: 5px 0;
 					margin-left: 1px;
 					background: none;
 				}
