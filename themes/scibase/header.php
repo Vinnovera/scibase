@@ -4,7 +4,11 @@
 <meta charset="<?php bloginfo('charset'); ?>" />
 <title><?php wp_title('|'); ?></title>
 
+<?php if (preg_match('/(?i)msie [1-9]\./',$_SERVER['HTTP_USER_AGENT'])){ ?>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<?php }else{ ?>
 <meta name="viewport" http-equiv="X-UA-Compatible" content="width=device-width, initial-scale=1, IE=edge,chrome=1">
+<?php } ?>
 
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/modernizr.custom.15992.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
