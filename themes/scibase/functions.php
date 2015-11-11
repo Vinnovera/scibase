@@ -18,26 +18,23 @@ function cm_redirect_users_by_role() {
     } // if DOING_AJAX
  
 } // cm_redirect_users_by_role
-add_action( 'admin_init', 'cm_redirect_users_by_role' );
+//add_action( 'admin_init', 'cm_redirect_users_by_role' );
 
 function scibase_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri().'/style.css' );
 	if (is_page_template('study.php')) {
 		wp_enqueue_style( 'survey', get_stylesheet_directory_uri().'/ui/css/survey.css' );
 	}
-	if (is_user_logged_in()) {
+
 		wp_enqueue_style( 'responsive', get_stylesheet_directory_uri().'/ui/css/responsive.css' );
 		wp_enqueue_style( 'mobile-menu', get_stylesheet_directory_uri().'/ui/css/mobile-menu.css' );
-	}
+	
 }
 
 add_action( 'wp_enqueue_scripts', 'scibase_scripts' );
 
 add_filter( 'body_class', 'sp_body_class' );
 function sp_body_class( $class ) {
-	if (!is_user_logged_in()) {
-		$class[] = 'non-responsive';
-	}
 
 	$current_user   = wp_get_current_user();
     $role_name      = $current_user->roles[0];
