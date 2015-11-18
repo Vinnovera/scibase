@@ -48,6 +48,10 @@
 						include(TEMPLATEPATH . '/components/subMenu.php');
 					echo '</div>';
 				echo'</nav>';
+
+
+				include(TEMPLATEPATH . '/components/relatedPages.php');
+
 				
 				if ( is_page('image-gallery')) { 
 					include(TEMPLATEPATH . '/components/imageGallery.php');	

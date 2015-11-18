@@ -90,6 +90,7 @@
 
 	.g.post,
 	.g.post-list,
+	.g.press-list,
 	.g.side-menu{
 		float: right;
 	}
@@ -218,8 +219,16 @@
 		width: 100%;
 	}
 
+	.page-template-productpage .body > .gw{
+		margin: 0;
+	}
+	.page-template-productpage .body .gw .g{
+		padding-left: 0;
+	}
+
 	.g.one-quarter.side-menu {
-		margin-top: 1em;
+		margin-top: 1.5em;
+		margin-bottom: 0;
 		max-width: 400px;
 		width: 100%;
 	}
@@ -302,42 +311,39 @@
 				float: none;
 				margin-top: 15px;
 			}
-			.body-footer .main-menu ul li.twitter,
-			.body-footer .main-menu ul li.linkedin,
-			.body-footer .main-menu ul li.facebook,
-			.body-footer .main-menu ul li.instagram{
+			.body-footer .main-menu ul li.icon{
 				position: absolute;
 				top: 0px;
-				left: 4%;
-				width: 29%;
+				width: 25%;
 				height: 20px;
 				color: black;
 				padding: 0;
 				font-size: 90%;
 				float: none;
+				text-align: center;
 			}
 
+			.body-footer .main-menu ul li.linkedin{
+				left: 0%;
+			}
 			.body-footer .main-menu ul li.twitter{
-				left: 34%;
+				left: 25%;
 			}
 			.body-footer .main-menu ul li.facebook{
-				left: 70%;
+				left: 50%;
 			}
-			.body-footer .main-menu ul li.instagram{
-				left: 78%;
-			}
-			.body-footer .main-menu ul li.twitter a,
-			.body-footer .main-menu ul li.linkedin a,
-			.body-footer .main-menu ul li.facebook a,
-			.body-footer .main-menu ul li.instagram a{
-				color: black;
-				border:none;
+			.body-footer .main-menu ul li.youtube{
+				left: 75%;
 			}
 
-			.body-footer .main-menu ul li.twitter a:hover,
-			.body-footer .main-menu ul li.linkedin a:hover,
-			.body-footer .main-menu ul li.facebook a:hover,
-			.body-footer .main-menu ul li.instagram a:hover{
+			.body-footer .main-menu ul li.icon a{
+				color: black;
+				border:none;
+				display: inline-block;
+				margin: 0;
+			}
+
+			.body-footer .main-menu ul li.icon a:hover{
 				color: inherit;
 				border: none;
 			}

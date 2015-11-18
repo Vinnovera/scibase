@@ -25,5 +25,6 @@ function my_page_tree($this_page) {
 
 if( function_exists( 'my_page_tree') && my_page_tree($post) != '' ) :?>
 <ul>
-<?php echo my_page_tree($post);?></ul>
+<?php echo my_page_tree($post);?>
+</ul>
 <?php endif;?>

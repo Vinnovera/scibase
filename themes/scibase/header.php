@@ -54,9 +54,9 @@
 								<?php include(TEMPLATEPATH . '/components/topMenu.php'); ?>
 							</ul>
 							<ul class="utility">
-								<li class="search">
-									<?php include(TEMPLATEPATH . '/components/topSearch.php'); ?>
-								</li>
+								<!--li class="search">
+									<?php //include(TEMPLATEPATH . '/components/topSearch.php'); ?>
+								</li-->
 								<?php include(TEMPLATEPATH . '/components/languageMenu.php'); ?>
 							</ul>
 						</nav>

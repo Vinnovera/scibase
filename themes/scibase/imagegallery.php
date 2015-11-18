@@ -24,11 +24,7 @@ get_header();
 			}
 			
 			if ($children) {
-				echo'<nav class="g one-quarter side-menu">';
-					echo '<div class="box">';
-						include(TEMPLATEPATH . '/components/subMenu.php');
-					echo '</div>';
-				echo'</nav>';
+
 				
 				echo '<div class="g three-quarters press-list">';
 					echo '<div class="gw">';
@@ -44,6 +40,14 @@ get_header();
 						
 					echo '</div>';
 				echo '</div>';
+
+
+				echo'<nav class="g one-quarter side-menu">';
+					echo '<div class="box">';
+						include(TEMPLATEPATH . '/components/subMenu.php');
+					echo '</div>';
+				echo'</nav>';
+
 				
 				include(TEMPLATEPATH . '/components/widgets.php');
 			}

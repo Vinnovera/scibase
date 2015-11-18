@@ -8,7 +8,7 @@
 				
 				if( $value ) {
 				
-					echo the_sub_field('embed');
+					echo '<div class="video">'.get_sub_field('embed').'</div>';
 				
 				} else {
 				?>

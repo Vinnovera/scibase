@@ -21,6 +21,21 @@
 			});
 		});
 
+		$('.foldable-list-headline').on('click', function(e){
+			$(this).closest('.foldable-list-item').toggleClass('open');
+			console.log($(this).closest('.foldable-list-item'));
+		});
+
+		$('.foldable-list-actions .expand-btn').on('click', function(e){
+			if ($(this).text() == '+ Expand All') {
+				$('.foldable-list-item').addClass('open');
+				$(this).text('- Minimize All');
+			}else{
+				$('.foldable-list-item').removeClass('open');
+				$(this).text('+ Expand All');
+			}
+		});
+
 		/*
 		$('.post.contact').each(function(){
 			var $postfig = $('figure',this);
