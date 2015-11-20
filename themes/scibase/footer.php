@@ -21,7 +21,7 @@
 		</div> <!--/scroller-->
 	</div> <!--/mp-pusher -->
 </div><!-- /wrapper -->
-<?php wp_footer(); ?>
+
 
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/jquery.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/jquery.flexslider-min.js"></script>
@@ -32,5 +32,6 @@
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/mlpushmenu.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/lib/modernizr.custom.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ui/js/script.js"></script>
+<?php wp_footer(); ?>
 </body>
 </html>

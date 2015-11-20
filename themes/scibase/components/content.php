@@ -3,9 +3,9 @@
 <?php endif; ?>
 
 <?php if( have_rows('foldable_list') ): ?>
-		<div class="foldable-list-actions">
+		<!--div class="foldable-list-actions">
 			<button class="expand-btn">+ Expand all</button>
-		</div>
+		</div -->
 		<ul class="foldable-list">
 		<?php 
 

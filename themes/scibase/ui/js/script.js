@@ -23,7 +23,6 @@
 
 		$('.foldable-list-headline').on('click', function(e){
 			$(this).closest('.foldable-list-item').toggleClass('open');
-			console.log($(this).closest('.foldable-list-item'));
 		});
 
 		$('.foldable-list-actions .expand-btn').on('click', function(e){

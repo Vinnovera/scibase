@@ -863,6 +863,7 @@ header .main-menu li:first-child > .mark > div{
 	
 	.post > .box {
 		padding: 30px 45px 18px;
+		position: relative;
 	}
 		.post > p,
 		.post > ul,
@@ -896,6 +897,35 @@ header .main-menu li:first-child > .mark > div{
 			.post .date + p {
 				margin-top: 0;
 			}
+		.post > .box {
+			padding: 30px 45px 18px;
+			position: relative;
+		}
+
+		.post > .box .loginout a,
+		.post > .box form .login-submit #wp-submit {
+			padding: 8px 12px;
+			font-family: alwynregular, Arial, sans-serif;
+			font-weight: bold;
+			background: #ff6600;
+			border: none;
+			color: white;
+		}
+
+		.post > .box .loginout {
+			position: absolute;
+			top: 5px;
+			right: 0;
+		}		
+		.post > .box .loginout a {
+			color: #fff;
+			text-decoration: none;
+			background: #606060;
+		}
+		.post > .box .loginout a:hover {
+			color: #fff;
+			background: #ff6600;
+		}
 
 .post-list > .box {
 	padding: 40px;

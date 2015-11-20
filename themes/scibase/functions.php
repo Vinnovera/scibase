@@ -4,21 +4,95 @@ show_admin_bar( false );
 
 update_option( 'menu_init', 'current_item' );
 
-function cm_redirect_users_by_role() {
- 
-    if ( ! defined( 'DOING_AJAX' ) ) {
- 
-        $current_user   = wp_get_current_user();
-        $role_name      = $current_user->roles[0];
- 
-        if ( 'subscriber' === $role_name ) {
-            wp_redirect( get_bloginfo('url') );
-        } // if $role_name
- 
-    } // if DOING_AJAX
- 
-} // cm_redirect_users_by_role
-//add_action( 'admin_init', 'cm_redirect_users_by_role' );
+function limit_access( $value, $post_id, $field ){
+	if (!is_admin()) {
+
+		$url = esc_url( get_permalink($post_id) );
+
+		//If the user is in the sales section
+		$url = strpos($url,'sales');
+		
+		if (!members_can_current_user_view_post( $post_id ) ) {
+
+			$value = members_get_post_error_message( $post_id ).members_login_form_shortcode();
+
+		}else if (members_can_current_user_view_post( $post_id ) && is_user_logged_in() && $field['name'] == 'content' && $url > 0) {
+			
+			$value = '<div class="loginout">'.wp_loginout( get_permalink($post_id) , false).'</div>'.$value;
+		}
+	}
+	return $value;
+}
+
+// acf/load_value - filter for every value load
+add_filter('acf/load_value', 'limit_access', 10, 3);
+
+function filesDir($catSlug) {
+
+if (!$catSlug) {
+	$catSlug = 'sales';
+}
+  
+
+
+$cat = get_category_by_slug($catSlug); 
+$catID = $cat->term_id;
+
+$output = '<ul class="blocks">';
+$parents = get_categories(array('hierarchical' => false, 'include' => $catID));
+
+	if(!empty($parents)){
+		foreach($parents as $parent){
+
+			$children = get_categories(array('hierarchical' => false, 'child_of' => $parent->term_id));
+
+			$output .= '<ul class="folders">';
+			foreach($children as $child){
+				$output .= '<li class="folder">'.$child->name.'</li>';
+				$output .= '<ul>';
+				$output .= renderFiles($child->term_id);
+				$output .= '</ul>';
+				$subchildren = get_categories(array('hierarchical' => false, 'child_of' => $child->term_id));
+
+				foreach($subchildren as $subchild){
+					$output .= '<li class="folder">'.$subchild->name.'</li>';
+					$output .= '<ul>';
+					$output .= renderFiles($subchild->term_id);
+					$output .= '</ul>';
+				}
+			}
+			$output .= '</ul>';
+
+			$output .= renderFiles($catID);
+			
+		}
+	}
+
+$output .= '</ul>';
+
+return $output;
+}
+
+function renderFiles($catID){
+	global $post;
+
+	$files = get_posts(array('post_type' => 'attachment' ,'category__in' => $catID));
+
+	$html;
+
+	foreach ( $files as $post ) : setup_postdata( $post);
+		$html .= '<li><a href="'.wp_get_attachment_url( $post->ID ).'" download>'.get_the_title().'</a></li>';
+	endforeach;
+	wp_reset_postdata();
+
+	return $html;
+}
+
+function register_shortcodes(){
+   add_shortcode('file-dir', 'filesDir');
+}
+
+add_action( 'init', 'register_shortcodes');
 
 function scibase_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_directory_uri().'/style.css' );
@@ -33,6 +107,12 @@ function scibase_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'scibase_scripts' );
 
+add_filter('gform_init_scripts_footer', 'init_scripts');
+function init_scripts() {
+	return true;
+}
+
+
 add_filter( 'body_class', 'sp_body_class' );
 function sp_body_class( $class ) {
 	if (preg_match('/(?i)msie [1-9]\./',$_SERVER['HTTP_USER_AGENT'])){
@@ -40,11 +120,11 @@ function sp_body_class( $class ) {
 	}
 
 	$current_user   = wp_get_current_user();
-    $role_name      = $current_user->roles[0];
+	$role_name      = $current_user->roles[0];
  
-    if ( $role_name ) {
-            $class[] = 'subscriber';
-    } // if $role_name
+	if ( $role_name ) {
+			$class[] = 'subscriber';
+	} // if $role_name
 	return $class;
 }
 
@@ -92,10 +172,10 @@ add_theme_support( 'menus' );
 
 // Menus
 register_nav_menus( array(  
-    'topMenu' 		=> __( 'Top Menu'),
-    'mainMenu' 		=> __( 'Main Menu'),
-    'mobileMenu' 	=> __( 'Mobile Menu'),
-    'footerMenu' 	=> __( 'Footer Menu')
+	'topMenu' 		=> __( 'Top Menu'),
+	'mainMenu' 		=> __( 'Main Menu'),
+	'mobileMenu' 	=> __( 'Mobile Menu'),
+	'footerMenu' 	=> __( 'Footer Menu')
 ));
 
 
@@ -127,16 +207,16 @@ if ( function_exists( 'add_image_size' ) ) {
 
 //Remove WP default image sizes and add new ones
 function custom_upload_sizes($sizes) {
-       //unset( $sizes['thumbnail']);
-       //unset( $sizes['medium']);
-       //unset( $sizes['large']);
-       //unset( $sizes['full'] ); // removes full size if needed
+	   //unset( $sizes['thumbnail']);
+	   //unset( $sizes['medium']);
+	   //unset( $sizes['large']);
+	   //unset( $sizes['full'] ); // removes full size if needed
 
-       $custom_imgsizes = array(
-       		"article" => __( "Article")
-       );
-       $newimgsizes = array_merge($sizes, $custom_imgsizes);
-       return $newimgsizes;
+	   $custom_imgsizes = array(
+			"article" => __( "Article")
+	   );
+	   $newimgsizes = array_merge($sizes, $custom_imgsizes);
+	   return $newimgsizes;
 }
 add_filter('image_size_names_choose', 'custom_upload_sizes');
 
@@ -150,24 +230,24 @@ add_filter('image_size_names_choose', 'custom_upload_sizes');
  */
 function object_is_in_menu( $menu = null, $object_id = null ) {
 
-    // get menu object
-    $menu_object = wp_get_nav_menu_items( esc_attr( $menu ) );
+	// get menu object
+	$menu_object = wp_get_nav_menu_items( esc_attr( $menu ) );
 
-    // stop if there isn't a menu
-    if( ! $menu_object )
-        return false;
+	// stop if there isn't a menu
+	if( ! $menu_object )
+		return false;
 
-    // get the object_id field out of the menu object
-    $menu_items = wp_list_pluck( $menu_object, 'object_id' );
+	// get the object_id field out of the menu object
+	$menu_items = wp_list_pluck( $menu_object, 'object_id' );
 
-    // use the current post if object_id is not specified
-    if( !$object_id ) {
-        global $post;
-        $object_id = get_queried_object_id();
-    }
+	// use the current post if object_id is not specified
+	if( !$object_id ) {
+		global $post;
+		$object_id = get_queried_object_id();
+	}
 
-    // test if the specified page is in the menu or not. return true or false.
-    return in_array( (int) $object_id, $menu_items );
+	// test if the specified page is in the menu or not. return true or false.
+	return in_array( (int) $object_id, $menu_items );
 
 }
 
@@ -188,7 +268,7 @@ function get_current_page_depth(){
 		$depth++;
 	}
  
- 	return $depth;
+	return $depth;
 }
 
 // Activate Sidebars
@@ -220,8 +300,8 @@ add_filter( 'genesis_get_image', 'remove_thumbnail_dimensions', 10 );
 // Removes attached image sizes as well
 add_filter( 'the_content', 'remove_thumbnail_dimensions', 10 );
 function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
+	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+	return $html;
 }
 
 
@@ -231,10 +311,10 @@ function remove_menu_items() {
   $restricted = array(__('Links'),__('Comments'));
   end ($menu);
   while (prev($menu)){
-    $value = explode(' ',$menu[key($menu)][0]);
-    if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
-      unset($menu[key($menu)]);}
-    }
+	$value = explode(' ',$menu[key($menu)][0]);
+	if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
+	  unset($menu[key($menu)]);}
+	}
   }
   
 add_action('admin_menu', 'remove_menu_items');
@@ -243,31 +323,31 @@ function surveyformSubmit() {
 	if (!isset($_POST['survey_form_nonce']) || !wp_verify_nonce($_POST['survey_form_nonce'], 'survey_form') || !empty($_POST['sf_submit'])) return;
 
 	$details = array(
-      "firstname" => strip_tags($_POST['firstname']),
-      "surname" => strip_tags($_POST['surname']),
-      "firstyear" => strip_tags($_POST['firstyear']),
-      "practice" => strip_tags($_POST['practice']),
-      "address" => strip_tags($_POST['address']),
-      "address2" => strip_tags($_POST['address2']),
-      "city" => strip_tags($_POST['city']),
-      "state" => strip_tags($_POST['state']),
-      "zip" => strip_tags($_POST['zip']),
-      "email" => strip_tags($_POST['email']),
-      "phone" => strip_tags($_POST['phone'])
-    );
+	  "firstname" => strip_tags($_POST['firstname']),
+	  "surname" => strip_tags($_POST['surname']),
+	  "firstyear" => strip_tags($_POST['firstyear']),
+	  "practice" => strip_tags($_POST['practice']),
+	  "address" => strip_tags($_POST['address']),
+	  "address2" => strip_tags($_POST['address2']),
+	  "city" => strip_tags($_POST['city']),
+	  "state" => strip_tags($_POST['state']),
+	  "zip" => strip_tags($_POST['zip']),
+	  "email" => strip_tags($_POST['email']),
+	  "phone" => strip_tags($_POST['phone'])
+	);
 
-    require_once "inc/surveyform.class.php";
+	require_once "inc/surveyform.class.php";
 
-    $result = new SurveyForm($details);
+	$result = new SurveyForm($details);
 
-    $_POST['surveyValues'] = $details;
+	$_POST['surveyValues'] = $details;
 
-    if(!$result->getStatus()) {
-    	$_POST['surveySuccess'] = false;
-    } else {
-    	$_POST = array(); //Empty fields if sucess
-    	$_POST['surveySuccess'] = true;
-    }
+	if(!$result->getStatus()) {
+		$_POST['surveySuccess'] = false;
+	} else {
+		$_POST = array(); //Empty fields if sucess
+		$_POST['surveySuccess'] = true;
+	}
 
 
 }
@@ -309,7 +389,7 @@ class mobileMenu_walker_nav_menu extends Walker_Nav_Menu {
 	}
 
 	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
-    	
+		
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;

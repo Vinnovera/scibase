@@ -1,4 +1,4 @@
-<?php if(get_field('flexslider')):?>
+<?php if(get_field('flexslider') && get_field('flexslider').length > 0):?>
 <div class="slider">
 	<ul class="slides">
 		<?php while(the_repeater_field('flexslider')):?>
