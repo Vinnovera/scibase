@@ -139,7 +139,12 @@
 	}
 
 
-		
+	.filedir span.download{
+		display: none;
+	}
+	.filedir span.title{
+		max-width: 62%;
+	}
 	/*======================
 	//	Main framework
 	========================*/

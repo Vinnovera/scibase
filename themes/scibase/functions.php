@@ -1,5 +1,7 @@
 <?php
 
+require_once('inc/custom-post-type.php');
+
 show_admin_bar( false );
 
 update_option( 'menu_init', 'current_item' );
@@ -33,35 +35,51 @@ if (!$catSlug) {
 	$catSlug = 'sales';
 }
   
-
-
 $cat = get_category_by_slug($catSlug); 
 $catID = $cat->term_id;
 
-$output = '<ul class="blocks">';
+$output = '<ul class="filedir">';
 $parents = get_categories(array('hierarchical' => false, 'include' => $catID));
 
 	if(!empty($parents)){
 		foreach($parents as $parent){
 
-			$children = get_categories(array('hierarchical' => false, 'child_of' => $parent->term_id));
-
-			$output .= '<ul class="folders">';
+			$children = get_categories(array('hierarchical' => false, 'parent' => $parent->term_id));
+		
 			foreach($children as $child){
 				$output .= '<li class="folder">'.$child->name.'</li>';
 				$output .= '<ul>';
 				$output .= renderFiles($child->term_id);
-				$output .= '</ul>';
-				$subchildren = get_categories(array('hierarchical' => false, 'child_of' => $child->term_id));
+
+				$subchildren = get_categories(array('hierarchical' => false, 'parent' => $child->term_id));
 
 				foreach($subchildren as $subchild){
 					$output .= '<li class="folder">'.$subchild->name.'</li>';
 					$output .= '<ul>';
 					$output .= renderFiles($subchild->term_id);
+					
+					$sub_2_children = get_categories(array('hierarchical' => false, 'parent' => $subchild->term_id));
+
+					foreach($sub_2_children as $sub_2_child){
+						$output .= '<li class="folder">'.$sub_2_child->name.'</li>';
+						$output .= '<ul>';
+						$output .= renderFiles($sub_2_child->term_id);
+						
+						$sub_3_children = get_categories(array('hierarchical' => false, 'parent' => $sub_2_child->term_id));
+
+						foreach($sub_3_children as $sub_3_child){
+							$output .= '<li class="folder">'.$sub_3_child->name.'</li>';
+							$output .= '<ul>';
+							$output .= renderFiles($sub_3_child->term_id);
+							$output .= '</ul>';
+						}
+						$output .= '</ul>';
+					}
 					$output .= '</ul>';
 				}
+				$output .= '</ul>';
+
 			}
-			$output .= '</ul>';
 
 			$output .= renderFiles($catID);
 			
@@ -78,18 +96,54 @@ function renderFiles($catID){
 
 	$files = get_posts(array('post_type' => 'attachment' ,'category__in' => $catID));
 
+
 	$html;
 
 	foreach ( $files as $post ) : setup_postdata( $post);
-		$html .= '<li><a href="'.wp_get_attachment_url( $post->ID ).'" download>'.get_the_title().'</a></li>';
+		$fileType = explode("/", get_post_mime_type($post->ID));
+		$fileType = $fileType[1];
+		$docsize = wp_upload_dir()['path'].'/'.get_attached_file( $post->ID );
+		$docsize = @filesize($docsize);
+		if (FALSE === $docsize){
+			$docsize = '';
+		}else{
+			$docsize = size_format($docsize);
+		}
+
+		$html .= '<li><a href="'.wp_get_attachment_url( $post->ID ).'" download><span class="file-icon"><img src="'.get_icon_for_attachment($post->ID).'"/></span><span class="title">'.get_the_title().'</span><span class="download">'.__('Download','scibase').'</span><span class="filetype">'.$fileType.$docsize.'</span></a></li>';
 	endforeach;
 	wp_reset_postdata();
 
 	return $html;
 }
 
+function get_icon_for_attachment($post_id) {
+  $base = "http://stdicon.com/tango/";
+  $type = get_post_mime_type($post_id);
+
+  switch ($type) {
+    case 'image/jpeg':
+    case 'image/png':
+    case 'image/gif':
+      return wp_get_attachment_image_src( $post_id, 'thumbnail' )[0]; break;
+    default:
+      return $base.$type.'?size=32&default=package';
+  }
+
+  
+}
+
+function helloUser() {
+	if (is_user_logged_in()) {
+		$current_user = wp_get_current_user();
+        $output = __('Welcome','scibase').' '. $current_user->user_nicename;
+        return $output;
+	}
+}
+
 function register_shortcodes(){
    add_shortcode('file-dir', 'filesDir');
+   add_shortcode('hello-user', 'helloUser');
 }
 
 add_action( 'init', 'register_shortcodes');
@@ -203,6 +257,8 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'widget', 196, 107, true);
 	
 	add_image_size( 'download-materials', 125, 145, true);
+
+	add_image_size( 'icon', 64, 64, true);
 }
 
 //Remove WP default image sizes and add new ones
@@ -353,6 +409,37 @@ function surveyformSubmit() {
 }
 
 add_action('init', 'surveyformSubmit');
+
+/*add_filter( 'gform_pre_render_1', 'populate_posts' );
+add_filter( 'gform_pre_validation_1', 'populate_posts' );
+add_filter( 'gform_pre_submission_filter_1', 'populate_posts' );
+add_filter( 'gform_admin_pre_render_1', 'populate_posts' );
+function populate_posts( $form ) {
+
+    foreach ( $form['fields'] as &$field ) {
+
+        if ( $field->type != 'select' || strpos( $field->cssClass, 'populate-customer-dropdown' ) === false ) {
+            continue;
+        }
+
+        // you can add additional parameters here to alter the posts that are retrieved
+        // more info: [http://codex.wordpress.org/Template_Tags/get_posts](http://codex.wordpress.org/Template_Tags/get_posts)
+        $posts = get_posts( 'numberposts=-1&post_status=publish&post_type=client' );
+
+        $choices = array();
+
+        foreach ( $posts as $post ) {
+            $choices[] = array( 'text' => $post->post_title, 'value' => $post->post_ID );
+        }
+
+        // update 'Select a Post' to whatever you'd like the instructive option to be
+        $field->placeholder = 'Select a Post';
+        $field->choices = $choices;
+
+    }
+
+    return $form;
+}*/
 
 // remove shit from header
 remove_action('wp_head', 'rsd_link');

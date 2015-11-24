@@ -1242,6 +1242,94 @@ header .main-menu li:first-child > .mark > div{
 			}
 
 /*==================
+//	FILEDIR
+ ===================*/ 
+.filedir{
+	margin: 0;
+	padding: 0;
+}
+.filedir img{
+	max-width: 32px;
+	height: auto;
+}
+
+.filedir,
+.filedir ul{
+	list-style-type: none;
+	margin: 0;
+	overflow: hidden;
+}
+
+.filedir ul{
+	max-height: 0;
+	transition: max-height .3s ease-out;
+	-webkit-transition: max-height .3s ease-out;
+}
+.filedir ul.open{
+	max-height: 9000px;
+}
+
+.filedir li a,
+.filedir li.folder{
+	width: 99%;
+	padding: 5px;
+	background: #fff;
+	overflow: hidden;
+	display: block;
+	margin: 1px 0 0;
+	cursor: pointer;
+	line-height: 32px;
+	border-radius: 3px;
+	color: #333;
+}
+.filedir li a:hover,
+.filedir li.folder:hover,
+.filedir li.folder.open{
+	background: #f7f7f7;
+}
+.filedir li a:hover span{
+	border-color: #ededed;
+}
+.filedir li.folder::before{
+	content: '';
+	height: 16px;
+	width: 25px;
+	margin: 7px 2px 0 0;
+	background: url('gfx/folder-icons.svg') no-repeat top left;
+	float:left;
+}
+
+.filedir li.folder.open::before{
+	background-position: bottom left;
+}
+.filedir span{
+	display: block;
+	float: left;
+	margin-right: 4px;
+}
+
+.filedir span.file-icon{
+	line-height: 0;
+}
+.filedir span.title{
+	max-width: 410px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.filedir span.filetype,
+.filedir span.download{
+	float:right;
+}
+
+.filedir span.filetype,
+.filedir span.download{
+	text-transform: uppercase;
+	font-size: 80%;
+	padding: 0 7px;
+	border: 1px solid #f7f7f7;
+}
+/*==================
 //	FOLDABLE LIST
  ===================*/ 
 .noselect {
@@ -1378,6 +1466,132 @@ header .main-menu li:first-child > .mark > div{
 	content: '–';
 	color:#747474;
 }
+/*==================
+//	FORMS
+ ===================*/ 
+.gform_wrapper{
+	max-width: 100%!important;
+}
+
+.gform_wrapper .gfield_price{
+	width: 97%;
+	background: #f7f7f7;
+	border-bottom: 1px solid #ededed;
+	border-left: 1px solid #ededed;
+	padding: 5px 7px;
+	margin: 0 0 12px;
+	position: relative;
+	min-height: 40px;
+}
+
+.gform_wrapper .populate-customer-dropdown select{
+	font-size: 32px;
+	line-height: 32px;
+	margin: 0 0 10px;
+}
+
+.gform_wrapper .top_label .gfield_price .gfield_label{
+	margin: 0;
+	line-height: 30px;
+	font-size: 100%;
+	display: block;
+}
+
+.gform_wrapper .gfield_price .ginput_container_singleproduct{
+	display: inline;
+}
+
+.gform_wrapper .top_label .gfield_price .gfield_description{
+	padding: 0 0 7px;
+	width: 60%;
+	display: block;
+	min-width: 220px;
+
+}
+
+.gform_wrapper .top_label .gfield_price .gfield_description i{
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	text-indent: 5px;
+	padding-right: 5px;
+	background: #fff;
+	color: #747474;
+	font-style: normal;
+	margin: 0 5px 0 0;
+}
+.gform_wrapper .top_label .gfield_price .gfield_description i::before{
+	content: '# ';
+}
+
+
+.gform_wrapper .gfield_price p{
+	margin: 0;
+	display: inline-block;
+}
+.gform_wrapper .gfield_price .ginput_quantity_label,
+.gform_wrapper .gfield_price .ginput_product_price_label,
+.gform_wrapper .products .gfield_price .ginput_product_price,
+.gform_wrapper .products .gfield_price .ginput_quantity{
+	display: none;
+}
+
+.gform_wrapper .products{
+	position: absolute;
+	max-width: 480px;
+	width: 100%;
+	background: #fff;
+	border-radius: 2px;
+	border: 1px solid #ededed;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.gform_wrapper .products .gfield_price{
+	margin: 0;
+	width: 100%;
+	border-left: none;
+	display: none;
+}
+
+.gform_wrapper .products.open .gfield_price{
+	display: block;
+}
+
+.gform_wrapper .gfield_price .ginput_container_singleproduct .ginput_product_price,
+.gform_wrapper .gfield_price .ginput_container_singleproduct .ginput_quantity{
+	font-size: 120%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 7px;
+}
+
+.gform_wrapper .gfield_price .ginput_container_singleproduct .ginput_quantity{
+	right: 0;
+}
+
+.gform_wrapper .gfield_price .ginput_container_singleproduct .ginput_product_price{
+	right: 55px;
+	line-height: 35px;
+	color: #333;
+}
+
+.gform_wrapper .gfield_price.gfield_total{
+	text-align: right;
+	background: transparent;
+	border: none;
+}
+
+.gform_wrapper .gfield_price.gfield_total .ginput_total{
+	font-size: 140%;
+	color: #ff6600;
+	font-weight: bold;
+}
+
+
+
 /*==================
 //	VIDEO
  ===================*/ 
