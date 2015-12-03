@@ -4,6 +4,57 @@
 	<div class="body">
 		<div class="gw">
 			
+			<article class="g three-quarters post-list">
+			<div class="box">
+				<?php if (have_posts()) : ?>
+				<?php while (have_posts() ) : the_post();  ?>
+				<?php
+				$title = get_the_title();			
+				$permalink = get_permalink($post->ID);
+				$category = get_the_category($post->ID);
+				$category = $category[0]->slug;
+				$id = get_the_ID();
+				$date = get_the_date('d F Y H:i');
+				
+				$media =  get_post_meta($post->ID,'enclosure', true);
+				$media = preg_split('/\s+/', $media);
+				$media_title = get_post_meta($post->ID,'media_title', true);
+				if (!$media_title) {
+					$media_title = basename($media[0]);
+				}
+
+				$media_link = '<a class="download" href="'.$media[0].'" target="_blank" title="'.$media_title.'">'.$media_title.'</a>';
+
+				?>
+				<article class="post">
+					<?php
+					echo '<h1>';
+						echo $title;
+					echo '</h1>';
+					if ($category !== 'events') {
+					echo '<span class="date">';
+						echo $date;
+					echo '</span>';
+					}
+
+
+					?>
+					<?php the_content(); ?>
+				</article>
+				<?php 
+				if ($media[0]) {
+					echo '<h3>Downloads</h3>';
+					echo '<ul class="link-list">';
+					echo '<li class="file">'.$media_link.'</li>';
+					echo '</ul>';
+				}
+				 ?>
+				<?php 
+				endwhile;
+				endif;
+				?>
+			</div>
+		</article>
 			<nav class="g one-quarter side-menu">
 				<div class="box">
 				<?php
@@ -52,39 +103,8 @@
 				<?php endif;?>
 				</div>
 			</nav>
-			<article class="g three-quarters post-list">
-			<div class="box">
-				<?php if (have_posts()) : ?>
-				<?php while (have_posts() ) : the_post();  ?>
-				<?php
-				$title = get_the_title();			
-				$permalink = get_permalink($post->ID);
-				$category = get_the_category($post->ID);
-				$category = $category[0]->slug;
-				$id = get_the_ID();
-				$date = get_the_date('d F Y H:i');
-				?>
-				<article class="post">
-					<?php
-					echo '<h1>';
-						echo $title;
-					echo '</h1>';
-					if ($category !== 'events') {
-					echo '<span class="date">';
-						echo $date;
-					echo '</span>';
-					}
-
-
-					?>
-					<?php the_content(); ?>
-				</article>
-				<?php 
-				endwhile;
-				endif;
-				?>
-			</div>
-			</article>
+			
+			
 		</div>
 	</div>
 </div>

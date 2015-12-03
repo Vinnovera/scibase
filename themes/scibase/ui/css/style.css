@@ -256,7 +256,7 @@ body.concept .slider img {
 	header .top-menu > ul.utility {
 		float: right;
 		padding-top: 2px;
-		padding-left: 27px;
+		padding-left: 20px;
 	}
 
 		header .top-menu > ul.utility > li { 
@@ -316,6 +316,7 @@ header .main-menu li:first-child > .mark > div{
 		height: 38px;
 	}
 
+/*
 	.top-menu ul:first-child > li {
 		width: 115px;
 	}
@@ -334,13 +335,19 @@ header .main-menu li:first-child > .mark > div{
 		.top-menu ul > li.item6 {
 			margin-left: 243px;
 		}
+*/
 
-
+		.top-menu ul {
+			padding-top: 7px;
+		}
 
 		.top-menu ul > li {
 			padding-left:10px;
 			padding-bottom: 4px;
 			background: url('gfx/bg_gfx.png') left -196px no-repeat;
+
+			float: left;
+			margin: 0 5px;
 		}
 
 			.top-menu a {
@@ -861,6 +868,16 @@ header .main-menu li:first-child > .mark > div{
 	color: #2e2e2e;
 }
 	
+	.post table{
+		overflow-x: auto;
+		display: block;
+	}
+
+	.post tbody{
+		min-width: 610px;
+		display: block;
+	}
+	
 	.post > .box {
 		padding: 30px 45px 18px;
 		position: relative;
@@ -926,6 +943,7 @@ header .main-menu li:first-child > .mark > div{
 			color: #fff;
 			background: #ff6600;
 		}
+
 
 .post-list > .box {
 	padding: 40px;
@@ -1082,6 +1100,41 @@ header .main-menu li:first-child > .mark > div{
 
 .page-template-default  .one-whole .box img{
 	max-width: 100%;
+}
+
+ul.link-list {
+	list-style: none;
+	margin: 0;
+	padding: 10px;
+	background: #f1f1f1;
+}
+
+ul.link-list li {
+	background: url(gfx/text-x-generic.png) no-repeat 0 50%;
+	margin: 2px 0;
+	padding: 0 0 0 20px
+}
+
+a.file {
+	background: url(gfx/text-x-generic.png) no-repeat;
+	margin: 0;
+	padding: 0 0 0 20px
+}
+
+ul.link-list li.pdf,a.file.pdf {
+	background-image: url(gfx/application-pdf.png)
+}
+
+ul.link-list li.jpeg,ul.link-list li.jpg,a.file.jpeg,a.file.jpg {
+	background-image: url(gfx/image-x-generic.png)
+}
+
+ul.link-list li.link,a.file.link {
+	background-image: url(gfx/text-html.png)
+}
+
+ul.link-list li.node,a.file.node {
+	background-image: url(gfx/x-office-document.png)
 }
 
 /*==================
@@ -1333,12 +1386,12 @@ header .main-menu li:first-child > .mark > div{
 //	FOLDABLE LIST
  ===================*/ 
 .noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .foldable-list{
@@ -1472,6 +1525,10 @@ header .main-menu li:first-child > .mark > div{
 .gform_wrapper{
 	max-width: 100%!important;
 }
+.gform_wrapper ul,
+.gform_wrapper ol{
+	list-style-type: none;
+}
 
 .gform_wrapper .gfield_price{
 	width: 97%;
@@ -1596,18 +1653,18 @@ header .main-menu li:first-child > .mark > div{
 //	VIDEO
  ===================*/ 
 .video {
-    position: relative;
-    padding: 0 0 55.9375%;
-    height: 0;
+	position: relative;
+	padding: 0 0 55.9375%;
+	height: 0;
 }
 
 .video > iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%!important;
-    height: 100%!important;
-    min-height: 100%!important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%!important;
+	height: 100%!important;
+	min-height: 100%!important;
 }
 /*==================
 //	FRONTPAGE IMAGE

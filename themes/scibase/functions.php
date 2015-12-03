@@ -6,6 +6,23 @@ show_admin_bar( false );
 
 update_option( 'menu_init', 'current_item' );
 
+function enable_extended_upload ( $mime_types =array() ) {
+ 
+   // The MIME types listed here will be allowed in the media library.
+   // You can add as many MIME types as you want.
+   $mime_types['zip']  = 'application/zip';
+   $mime_types['ppt'] = 'application/mspowerpoint';
+   $mime_types['ps'] = 'application/postscript';
+   $mime_types['svg'] = 'image/svg+xml'; //Adding svg extension
+   $mime_types['psd'] = 'image/vnd.adobe.photoshop'; //Adding photoshop files
+   $mime_types['eps'] = 'application/postscript'; //Adding eps files
+   $mime_types['ai'] = 'application/postscript'; //Adding eps files
+ 
+   return $mime_types;
+}
+ 
+add_filter('upload_mimes', 'enable_extended_upload');
+
 function limit_access( $value, $post_id, $field ){
 	if (!is_admin()) {
 
@@ -31,6 +48,10 @@ add_filter('acf/load_value', 'limit_access', 10, 3);
 
 function filesDir($catSlug) {
 
+// Use english site for filedir.
+global $switched;
+switch_to_blog(2);
+
 if (!$catSlug) {
 	$catSlug = 'sales';
 }
@@ -39,33 +60,33 @@ $cat = get_category_by_slug($catSlug);
 $catID = $cat->term_id;
 
 $output = '<ul class="filedir">';
-$parents = get_categories(array('hierarchical' => false, 'include' => $catID));
+$parents = get_categories(array('hierarchical' => false, 'include' => $catID, 'hide_empty'  => 0));
 
 	if(!empty($parents)){
 		foreach($parents as $parent){
 
-			$children = get_categories(array('hierarchical' => false, 'parent' => $parent->term_id));
+			$children = get_categories(array('hierarchical' => false, 'parent' => $parent->term_id, 'hide_empty'  => 0));
 		
 			foreach($children as $child){
 				$output .= '<li class="folder">'.$child->name.'</li>';
 				$output .= '<ul>';
 				$output .= renderFiles($child->term_id);
 
-				$subchildren = get_categories(array('hierarchical' => false, 'parent' => $child->term_id));
+				$subchildren = get_categories(array('hierarchical' => false, 'parent' => $child->term_id, 'hide_empty'  => 0));
 
 				foreach($subchildren as $subchild){
 					$output .= '<li class="folder">'.$subchild->name.'</li>';
 					$output .= '<ul>';
 					$output .= renderFiles($subchild->term_id);
 					
-					$sub_2_children = get_categories(array('hierarchical' => false, 'parent' => $subchild->term_id));
+					$sub_2_children = get_categories(array('hierarchical' => false, 'parent' => $subchild->term_id, 'hide_empty'  => 0));
 
 					foreach($sub_2_children as $sub_2_child){
 						$output .= '<li class="folder">'.$sub_2_child->name.'</li>';
 						$output .= '<ul>';
 						$output .= renderFiles($sub_2_child->term_id);
 						
-						$sub_3_children = get_categories(array('hierarchical' => false, 'parent' => $sub_2_child->term_id));
+						$sub_3_children = get_categories(array('hierarchical' => false, 'parent' => $sub_2_child->term_id, 'hide_empty'  => 0));
 
 						foreach($sub_3_children as $sub_3_child){
 							$output .= '<li class="folder">'.$sub_3_child->name.'</li>';
@@ -85,7 +106,7 @@ $parents = get_categories(array('hierarchical' => false, 'include' => $catID));
 			
 		}
 	}
-
+restore_current_blog();
 $output .= '</ul>';
 
 return $output;
@@ -94,7 +115,7 @@ return $output;
 function renderFiles($catID){
 	global $post;
 
-	$files = get_posts(array('post_type' => 'attachment' ,'category__in' => $catID));
+	$files = get_posts(array('post_type' => 'attachment' ,'category__in' => $catID, 'posts_per_page'   => -1) );
 
 
 	$html;
@@ -102,15 +123,8 @@ function renderFiles($catID){
 	foreach ( $files as $post ) : setup_postdata( $post);
 		$fileType = explode("/", get_post_mime_type($post->ID));
 		$fileType = $fileType[1];
-		$docsize = wp_upload_dir()['path'].'/'.get_attached_file( $post->ID );
-		$docsize = @filesize($docsize);
-		if (FALSE === $docsize){
-			$docsize = '';
-		}else{
-			$docsize = size_format($docsize);
-		}
 
-		$html .= '<li><a href="'.wp_get_attachment_url( $post->ID ).'" download><span class="file-icon"><img src="'.get_icon_for_attachment($post->ID).'"/></span><span class="title">'.get_the_title().'</span><span class="download">'.__('Download','scibase').'</span><span class="filetype">'.$fileType.$docsize.'</span></a></li>';
+		$html .= '<li><a href="'.wp_get_attachment_url( $post->ID ).'" download target="_blank"><span class="file-icon"><img src="'.get_icon_for_attachment($post->ID).'"/></span><span class="title">'.get_the_title().'</span><span class="download">'.__('Download','scibase').'</span><span class="filetype">'.$fileType.'</span></a></li>';
 	endforeach;
 	wp_reset_postdata();
 
@@ -120,14 +134,19 @@ function renderFiles($catID){
 function get_icon_for_attachment($post_id) {
   $base = "http://stdicon.com/tango/";
   $type = get_post_mime_type($post_id);
+  $icon = wp_get_attachment_image_src( $post_id, 'thumbnail' );
 
   switch ($type) {
-    case 'image/jpeg':
-    case 'image/png':
-    case 'image/gif':
-      return wp_get_attachment_image_src( $post_id, 'thumbnail' )[0]; break;
-    default:
-      return $base.$type.'?size=32&default=package';
+	case 'image/jpeg':
+	case 'image/png':
+	case 'image/gif':
+	  return $icon[0]; break;
+	case 'application/postscript':
+		return $base.'image?size=32&default=package'; break;
+	case 'application/pdf':
+	  return $base.'text?size=32&default=package';
+	default:
+	  return $base.$type.'?size=32&default=package';
   }
 
   
@@ -136,8 +155,8 @@ function get_icon_for_attachment($post_id) {
 function helloUser() {
 	if (is_user_logged_in()) {
 		$current_user = wp_get_current_user();
-        $output = __('Welcome','scibase').' '. $current_user->user_nicename;
-        return $output;
+		$output = __('Welcome','scibase').' '. $current_user->user_nicename;
+		return $output;
 	}
 }
 
@@ -410,35 +429,47 @@ function surveyformSubmit() {
 
 add_action('init', 'surveyformSubmit');
 
+add_filter('syndicated_item_excerpt','fwp_strip_excerpt',10,2);
+
+function fwp_strip_excerpt ($excerpt, $post) {
+    // Strip out the HTML
+    $excerpt = wp_trim_words( $excerpt, 40, '...' );;
+
+    // Send it back
+    return $excerpt;
+} /* fwp_strip_excerpt() */
+
+
+
 /*add_filter( 'gform_pre_render_1', 'populate_posts' );
 add_filter( 'gform_pre_validation_1', 'populate_posts' );
 add_filter( 'gform_pre_submission_filter_1', 'populate_posts' );
 add_filter( 'gform_admin_pre_render_1', 'populate_posts' );
 function populate_posts( $form ) {
 
-    foreach ( $form['fields'] as &$field ) {
+	foreach ( $form['fields'] as &$field ) {
 
-        if ( $field->type != 'select' || strpos( $field->cssClass, 'populate-customer-dropdown' ) === false ) {
-            continue;
-        }
+		if ( $field->type != 'select' || strpos( $field->cssClass, 'populate-customer-dropdown' ) === false ) {
+			continue;
+		}
 
-        // you can add additional parameters here to alter the posts that are retrieved
-        // more info: [http://codex.wordpress.org/Template_Tags/get_posts](http://codex.wordpress.org/Template_Tags/get_posts)
-        $posts = get_posts( 'numberposts=-1&post_status=publish&post_type=client' );
+		// you can add additional parameters here to alter the posts that are retrieved
+		// more info: [http://codex.wordpress.org/Template_Tags/get_posts](http://codex.wordpress.org/Template_Tags/get_posts)
+		$posts = get_posts( 'numberposts=-1&post_status=publish&post_type=client' );
 
-        $choices = array();
+		$choices = array();
 
-        foreach ( $posts as $post ) {
-            $choices[] = array( 'text' => $post->post_title, 'value' => $post->post_ID );
-        }
+		foreach ( $posts as $post ) {
+			$choices[] = array( 'text' => $post->post_title, 'value' => $post->post_ID );
+		}
 
-        // update 'Select a Post' to whatever you'd like the instructive option to be
-        $field->placeholder = 'Select a Post';
-        $field->choices = $choices;
+		// update 'Select a Post' to whatever you'd like the instructive option to be
+		$field->placeholder = 'Select a Post';
+		$field->choices = $choices;
 
-    }
+	}
 
-    return $form;
+	return $form;
 }*/
 
 // remove shit from header
@@ -574,5 +605,7 @@ class mobileMenu_walker_nav_menu extends Walker_Nav_Menu {
 	}
 	  
 }
+
+
 
 ?>

@@ -40,7 +40,7 @@ $date = get_the_date('d F Y H:i');
 		echo '<h1>';
 			echo $title;
 		echo '</h1>';
-		the_content();
+		echo get_the_content();
 	} else {
 		echo '<h1>';
 			echo '<a href="'.$permalink.'">';
@@ -50,7 +50,7 @@ $date = get_the_date('d F Y H:i');
 		echo '<span class="date">';
 			echo $date;
 		echo '</span>';	
-		the_excerpt();
+		echo get_the_excerpt();
 		?>
 		<a href="<?php echo $permalink ?>" class="readmore"><?php _e('Read more', 'scibase'); ?></a>
 	<?php	
