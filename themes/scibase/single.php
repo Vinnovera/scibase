@@ -16,15 +16,25 @@
 				$id = get_the_ID();
 				$date = get_the_date('d F Y H:i');
 				
-				$media =  get_post_meta($post->ID,'enclosure', true);
-				$media = preg_split('/\s+/', $media);
-				$media_title = get_post_meta($post->ID,'media_title', true);
-				if (!$media_title) {
-					$media_title = basename($media[0]);
+				function get_enclosure_link(){
+
+					$id = get_the_ID();
+
+					$enclosure =  get_post_meta($id,'enclosure');
+					$enclosure = preg_split('/\s+/', $enclosure[1]);
+
+					$enclosure_title = get_post_meta($id,'enclosure_title', true);
+
+					if (!$enclosure_title) {
+						$enclosure_title = basename($enclosure[0]);
+					}
+					if ($enclosure[1]) {
+
+						$enclosure_link = '<a class="download" href="'.$enclosure[1].'" target="_blank" title="'.$enclosure_title.'">'.$enclosure_title.'</a>';
+						return $enclosure_link;
+					
+					}
 				}
-
-				$media_link = '<a class="download" href="'.$media[0].'" target="_blank" title="'.$media_title.'">'.$media_title.'</a>';
-
 				?>
 				<article class="post">
 					<?php
@@ -42,10 +52,10 @@
 					<?php the_content(); ?>
 				</article>
 				<?php 
-				if ($media[0]) {
+				if (get_enclosure_link()) {
 					echo '<h3>Downloads</h3>';
 					echo '<ul class="link-list">';
-					echo '<li class="file">'.$media_link.'</li>';
+					echo '<li class="file">'.get_enclosure_link().'</li>';
 					echo '</ul>';
 				}
 				 ?>

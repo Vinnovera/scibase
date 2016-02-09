@@ -79,3 +79,7 @@ msgstr "Abkürzungen"
 #. Set Language
 msgid "Set Language"
 msgstr "Sprache"
+
+#. Related
+msgid "Related"
+msgstr "Verwandte"

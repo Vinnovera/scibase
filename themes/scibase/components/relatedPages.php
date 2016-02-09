@@ -2,9 +2,8 @@
 
 $related_pages = get_field('related_pages');
 
-
 if ($related_pages) {
-	echo '<p class="g one-quarter side-menu-headline">RELATED</p>';
+	echo '<p class="g one-quarter side-menu-headline">'.__('Related','scibase').'</p>';
 	echo '<nav class="g one-quarter side-menu related-pages">';
 		echo '<div class="box">';
 			echo '<ul>';

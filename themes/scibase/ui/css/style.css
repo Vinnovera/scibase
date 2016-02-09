@@ -808,6 +808,7 @@ header .main-menu li:first-child > .mark > div{
 	font-size: 90%;
 	font-family: alwynregular, Arial, sans-serif;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .g.side-menu.related-pages{
